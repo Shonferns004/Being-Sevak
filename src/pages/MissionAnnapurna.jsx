@@ -18,7 +18,7 @@ const MissionAnnapurna = () => {
     <>
       <style>{`
         .mission-annapurna * { margin: 0; padding: 0; box-sizing: border-box; }
-        .mission-annapurna { font-family: 'Poppins', sans-serif; background: #f4f6f8; color: #315270; overflow-x: hidden; position: relative; }
+        .mission-annapurna { font-family: 'Poppins', sans-serif; background: #f4f6f8; color: #315270; overflow-x: hidden; overflow-x: clip; position: relative; }
         .mission-annapurna img { width: 100%; display: block; }
 
         .mission-annapurna .tax-box {
@@ -79,6 +79,52 @@ const MissionAnnapurna = () => {
         .mission-annapurna .blur { position: absolute; border-radius: 50%; filter: blur(120px); }
         .mission-annapurna .blur1 { width: 350px; height: 350px; background: #00a3da33; top: 0; left: 0; }
         .mission-annapurna .blur2 { width: 350px; height: 350px; background: #3152702b; bottom: 0; right: 0; }
+
+        .mission-annapurna .donate-split {
+          display: grid;
+          grid-template-columns: 1.25fr 0.75fr;
+          gap: 26px;
+          align-items: start;
+          padding: 30px 4% 40px;
+          background: #f4f7fb;
+        }
+        .mission-annapurna .donate-split-left { min-width: 0; }
+        .mission-annapurna .donate-split-right { min-width: 0; align-self: stretch; }
+        .mission-annapurna .donate-gallery {
+          display: flex; flex-direction: column; gap: 12px;
+          position: sticky; top: 90px; padding-top: 20px;
+        }
+        .mission-annapurna .g-big {
+          width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        .mission-annapurna .g-smalls { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .mission-annapurna .g-smalls img {
+          width: 100%; aspect-ratio: 1 / 1.15; object-fit: cover; border-radius: 12px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease;
+        }
+        .mission-annapurna .g-smalls img:hover { transform: translateY(-4px); }
+
+        .mission-annapurna .hero-title-fix {
+          font-size: 16px;
+          line-height: 1.45;
+          letter-spacing: -0.1px;
+          word-spacing: normal;
+          text-transform: none;
+        }
+        .mission-annapurna .tag-big {
+          font-size: 54px;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          font-weight: 900;
+        }
+        .mission-annapurna .hero-repeat {
+          min-height: auto;
+          padding: 70px 4%;
+          background: linear-gradient(135deg, #ffffff 0%, #f3fbff 100%);
+        }
+        .mission-annapurna .hero-repeat .hero-image img { height: 300px; }
+        .mission-annapurna .hero-repeat .blur { display: none; }
 
         .mission-annapurna .about-section { display: grid; grid-template-columns: 1fr; gap: 40px; padding: 28px 5% 40px 5%; text-align: center; position: relative; z-index: 1; overflow: hidden; isolation: isolate; }
         .mission-annapurna .about-image { position: relative; overflow: hidden; isolation: isolate; }
@@ -175,6 +221,7 @@ const MissionAnnapurna = () => {
           .mission-annapurna .hero-content { order: 1; }
           .mission-annapurna .hero-image { order: 2; margin: 0 auto; }
           .mission-annapurna .hero h1 { font-size: 36px; }
+          .mission-annapurna .hero-title-fix { font-size: 22px; }
           .mission-annapurna .hero p { font-size: 16px; }
           .mission-annapurna .hero-buttons { justify-content: center; }
           .mission-annapurna .hero-image img { height: 280px; max-width: 100%; transform: perspective(800px) rotateY(-5deg); }
@@ -194,13 +241,21 @@ const MissionAnnapurna = () => {
           .mission-annapurna .sevak-donation-content { flex-direction: column; text-align: center; gap: 24px; }
           .mission-annapurna .sevak-title { font-size: 32px; }
           .mission-annapurna .sevak-desc { font-size: 14px; }
+          .mission-annapurna .donate-split { gap: 18px; padding: 24px 3% 30px; }
+          .mission-annapurna .donate-gallery { top: 80px; }
           .mission-annapurna .testimonial-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+          .mission-annapurna .donate-split { grid-template-columns: 1fr; padding: 20px 4% 30px; }
+          .mission-annapurna .donate-gallery { position: static; padding-top: 0; }
         }
         @media (max-width: 600px) {
           .mission-annapurna .hero { padding: 40px 5% 30px; gap: 24px; }
           .mission-annapurna .hero h1 { font-size: 28px; }
+          .mission-annapurna .hero-title-fix { font-size: 16px; }
           .mission-annapurna .hero p { font-size: 14px; }
           .mission-annapurna .tag { font-size: 20px; }
+          .mission-annapurna .tag-big { font-size: 34px; letter-spacing: 2px; }
           .mission-annapurna .hero-image { width: 100%; max-width: 360px; margin: 0 auto; }
           .mission-annapurna .hero-image img { height: 200px; width: 100%; border-radius: 20px; transform: none; animation: none; }
           .mission-annapurna .hero-image::before { display: none; }
@@ -232,7 +287,7 @@ const MissionAnnapurna = () => {
           .mission-annapurna .testimonial-card p { font-size: 14px; }
           .mission-annapurna .tax-box { height: auto; padding: 16px; }
           .mission-annapurna .tax-box p { font-size: 14px; }
-          #donate iframe { height: 850px !important; }
+          #donate iframe { height: 1100px !important; }
         }
       `}</style>
 
@@ -242,6 +297,54 @@ const MissionAnnapurna = () => {
         </section>
 
         <section className="hero">
+          <div className="hero-content">
+            <span className="tag tag-big">Annadaan</span>
+            <h1 className="hero-title-fix">Help Being Sevak serve <span>Annadaan Seva</span><br />to Society</h1>
+            <p>
+              Being Sevak Charitable Trust presents the Annapurna Mission: Fight against Hunger, a humanitarian initiative dedicated to addressing hunger and malnutrition among underprivileged children, visually impaired individuals, and low-income families across India.
+            </p>
+            <div className="hero-buttons">
+              <a href="#donate" className="donate-btn-hero">Support The Mission</a>
+            </div>
+          </div>
+          <div className="hero-image">
+            <div className="floating-card card1">
+              <h3>102K+</h3>
+              <p>Annapurna Kits</p>
+            </div>
+            <div className="floating-card card2">
+              <h3>12K+</h3>
+              <p>Meals Distributed</p>
+            </div>
+            <img src="/images/a1.jpeg" alt="ngo" />
+          </div>
+          <div className="blur blur1"></div>
+          <div className="blur blur2"></div>
+        </section>
+
+        <div id="donate" className="donate-split">
+          <div className="donate-split-left">
+            <iframe
+              ref={iframeRef}
+              src="/donations/donation-inline.html"
+              style={{ width: '100%', height: '900px', border: 'none', display: 'block' }}
+              title="Donate to Mission Annapurna"
+            />
+          </div>
+          <div className="donate-split-right">
+            <div className="donate-gallery">
+              <img className="g-big" src="/images/a1.jpeg" alt="Annapurna Ration Distribution" />
+              <div className="g-smalls">
+                <img src="/images/a3.jpg" alt="Food Distribution" />
+                <img src="/images/a4.jpeg" alt="Ration Kit Distribution" />
+                <img src="/images/hj.png" alt="Community Meal Service" />
+                <img src="/images/roti1.jpg" alt="Roti Drive" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section className="hero hero-repeat">
           <div className="hero-content">
             <span className="tag">Fight Against Hunger</span>
             <h1>Nourishing Lives <br />With <span>Hope & Humanity</span></h1>
@@ -266,15 +369,6 @@ const MissionAnnapurna = () => {
           <div className="blur blur1"></div>
           <div className="blur blur2"></div>
         </section>
-
-        <div id="donate" style={{ width: '100%', background: '#f4f7fb', padding: '0', overflow: 'hidden', marginBottom: '0', position: 'relative', zIndex: 10, isolation: 'isolate' }}>
-          <iframe
-            ref={iframeRef}
-            src="/donations/donation-inline.html"
-            style={{ width: '100%', height: '650px', border: 'none', display: 'block' }}
-            title="Donate to Mission Annapurna"
-          />
-        </div>
 
         <section className="about-section" id="about">
           <div className="about-image">

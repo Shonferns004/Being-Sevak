@@ -43,7 +43,8 @@
     .donate-wrap {
       max-width: 780px;
       margin: 0 auto;
-      background: var(--white);
+      background: linear-gradient(165deg, #dff1fd 0%, #c9e6f8 55%, #b7dcf3 100%);
+      border: 1px solid #a9d3ee;
       border-radius: 24px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
       overflow: hidden;
@@ -157,8 +158,8 @@
 
     .freq-toggle {
       display: flex;
-      max-width: 340px;
-      background: var(--light-bg);
+      max-width: 100%;
+      background: var(--white);
       border-radius: 12px;
       padding: 4px;
       border: 2px solid var(--border);
@@ -211,15 +212,15 @@
     }
 
     .dist-tabs {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      justify-content: stretch;
     }
 
     .dist-tab {
-      padding: 20px 34px;
-      min-width: 160px;
+      padding: 18px 22px;
+      min-width: 0;
       border: 2px solid var(--border);
       border-radius: 9px;
       background: var(--white);
@@ -457,6 +458,190 @@
       align-items: center;
     }
 
+    /* ── DONATE FOR DROPDOWN ── */
+    .donatefor {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .donatefor-list {
+      display: flex;
+      flex-direction: column;
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ── TOP ROW (portrait) ── */
+    .top-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .top-row .col {
+      flex: 1 1 220px;
+      min-width: 0;
+    }
+
+    .donatefor-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 16px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      background: #f9fdff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      transition: border-color 0.3s;
+      text-align: left;
+    }
+
+    .df-trigger-label {
+      flex: 1;
+      color: var(--text-mid);
+      font-weight: 700;
+    }
+
+    .df-trigger-value {
+      font-weight: 800;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .donatefor-trigger:hover {
+      border-color: var(--cyan);
+    }
+
+    .donatefor.open .donatefor-trigger {
+      border-color: var(--cyan);
+    }
+
+    .donatefor-trigger i {
+      font-size: 0.7rem;
+      color: var(--mid);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .donatefor.open .donatefor-trigger i {
+      transform: rotate(180deg);
+    }
+
+    .donatefor-opt {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 16px;
+      cursor: pointer;
+      border-bottom: 1px solid #eef6fb;
+      transition: background 0.2s ease;
+      background: var(--white);
+    }
+
+    .donatefor-opt:last-child {
+      border-bottom: none;
+    }
+
+    .donatefor-opt:hover {
+      background: #f0faff;
+    }
+
+    .donatefor-opt.active {
+      background: linear-gradient(135deg, var(--cyan), var(--mid));
+    }
+
+    .donatefor-opt.active .df-name,
+    .donatefor-opt.active .df-amt {
+      color: var(--white);
+    }
+
+    .df-name {
+      flex: 1;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .df-amt {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--cyan);
+      white-space: nowrap;
+    }
+
+    .df-donate-btn {
+      flex-shrink: 0;
+      padding: 7px 16px;
+      border: none;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--cyan), var(--mid));
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 5px 14px rgba(0, 155, 212, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .df-donate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 155, 212, 0.5);
+    }
+
+    .donatefor-opt.active .df-donate-btn {
+      background: var(--white);
+      color: var(--mid);
+      box-shadow: none;
+    }
+
+    .df-custom-input {
+      display: inline-flex;
+      align-items: center;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f9fdff;
+      flex-shrink: 0;
+    }
+
+    .df-custom-input:focus-within {
+      border-color: var(--cyan);
+    }
+
+    .df-custom-input .df-rupee {
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      background: #eef8fc;
+      border-right: 2px solid var(--border);
+    }
+
+    .df-custom-input input {
+      border: none;
+      outline: none;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      width: 110px;
+      background: transparent;
+      color: var(--navy);
+    }
+
     /* ── FORM GRID ── */
     .form-grid {
       display: grid;
@@ -533,7 +718,7 @@
     .action-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       flex-wrap: wrap;
       gap: 16px;
       margin-top: 22px;
@@ -575,6 +760,8 @@
       box-shadow: 0 8px 25px rgba(0, 162, 217, 0.3);
       position: relative;
       overflow: hidden;
+      width: 100%;
+      max-width: 320px;
     }
 
     .donate-btn-inline::before {
@@ -773,8 +960,13 @@
       }
 
       .dist-tab {
-        width: 100%;
-        justify-content: center;
+        padding: 14px 12px;
+        font-size: 0.75rem;
+      }
+
+      .dist-tab i {
+        font-size: 0.85rem;
+        margin-right: 5px;
       }
 
       .form-grid {
@@ -827,12 +1019,49 @@
         font-size: 0.75rem;
       }
     }
+  /* ── SPLIT LAYOUT: donation (left) + images (right) ── */
+  .donate-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  .donate-left { min-width: 0; }
+  .donate-right { min-width: 0; }
+  .donate-gallery { display: flex; flex-direction: column; gap: 12px; }
+  .gallery-big {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  }
+  .gallery-smalls {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .gallery-smalls img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+  .gallery-smalls img:hover { transform: translateY(-4px); }
+  @media (max-width: 900px) {
+    .donate-layout { grid-template-columns: 1fr; }
+    .donate-gallery { position: static; }
+  }
   </style>
 </head>
 
 <body>
 
-  <div class="donate-wrap landscape">
+<div class="donate-wrap">
     <div class="form-header">
       <div class="form-header-left">
         <h2>Mission Annapurna Donation</h2>
@@ -847,16 +1076,16 @@
     </div> -->
       <div class="dist-tabs" id="distTabs">
         <button class="dist-tab active" data-dist="ration" onclick="selectDist(this)">
-          <i class="fas fa-shopping-basket"></i> Ration Distribution
+          <i class="fas fa-shopping-basket"></i> Foodgrain Distribution
         </button>
         <button class="dist-tab" data-dist="snacks" onclick="selectDist(this)">
-          <i class="fas fa-cookie"></i> Snacks Distribution
+          <i class="fas fa-cookie"></i> Snack Kit Distribution
         </button>
         <button class="dist-tab" data-dist="meal" onclick="selectDist(this)">
           <i class="fas fa-utensils"></i> Meal Distribution
         </button>
         <button class="dist-tab" data-dist="roti" onclick="selectDist(this)">
-          <i class="fas fa-bread-slice"></i> Roti Drive
+          <i class="fas fa-bread-slice"></i> Sevak Rasoi Ghar Seva
         </button>
       </div>
     </div>
@@ -865,46 +1094,82 @@
       <div class="top-row">
         <div class="col">
           <div class="field-group">
-            <label>Frequency <span class="req">*</span></label>
-            <div class="freq-toggle">
-              <button class="freq-btn active" onclick="selectFreq('once', this)">Just Once</button>
-              <button class="freq-btn" onclick="selectFreq('monthly', this)">Give Monthly</button>
+            <label>Annadaan Seva</label>
+            <div class="donatefor" id="donateFor">
+              <div class="donatefor-list" id="donateForList">
+                <div class="donatefor-opt active" onclick="selectDonateFor(this, '', 'Amount')">
+                  <span class="df-name">Donate For</span>
+                  <span class="df-amt">Amount</span>
+                </div>
+                <div class="donatefor-opt" onclick="selectDonateFor(this, '1250', 'Donate 1 foodgrain kit')">
+                  <span class="df-name">Donate 1 foodgrain kit</span>
+                  <span class="df-amt">₹1,250</span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, '1250')">Donate</button>
+                </div>
+                <div class="donatefor-opt" onclick="selectDonateFor(this, '3750', 'Donate 3 foodgrain kit')">
+                  <span class="df-name">Donate 3 foodgrain kit</span>
+                  <span class="df-amt">₹3,750</span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, '3750')">Donate</button>
+                </div>
+                <div class="donatefor-opt" onclick="selectDonateFor(this, '6250', 'Donate 5 foodgrain kit')">
+                  <span class="df-name">Donate 5 foodgrain kit</span>
+                  <span class="df-amt">₹6,250</span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, '6250')">Donate</button>
+                </div>
+                <div class="donatefor-opt" onclick="selectDonateFor(this, '31250', 'Donate 25 foodgrain kit')">
+                  <span class="df-name">Donate 25 foodgrain kit</span>
+                  <span class="df-amt">₹31,250</span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, '31250')">Donate</button>
+                </div>
+                <div class="donatefor-opt" onclick="selectDonateFor(this, '62500', 'Donate 50 foodgrain kit')">
+                  <span class="df-name">Donate 50 foodgrain kit</span>
+                  <span class="df-amt">₹62,500</span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, '62500')">Donate</button>
+                </div>
+                <div class="donatefor-opt" onclick="selectDonateFor(this, '125000', 'Donate 100 foodgrain kit')">
+                  <span class="df-name">Donate 100 foodgrain kit</span>
+                  <span class="df-amt">₹1,25,000</span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, '125000')">Donate</button>
+                </div>
+                <div class="donatefor-opt" onclick="selectDonateFor(this, '250000', 'Donate 200 foodgrain kit')">
+                  <span class="df-name">Donate 200 foodgrain kit</span>
+                  <span class="df-amt">₹2,50,000</span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, '250000')">Donate</button>
+                </div>
+                <div class="donatefor-opt" onclick="selectDonateFor(this, '625000', 'Donate 500 foodgrain kit')">
+                  <span class="df-name">Donate 500 foodgrain kit</span>
+                  <span class="df-amt">₹6,25,000</span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, '625000')">Donate</button>
+                </div>
+                <div class="donatefor-opt" onclick="selectDonateFor(this, '1250000', 'Donate 1000 foodgrain kit')">
+                  <span class="df-name">Donate 1000 foodgrain kit</span>
+                  <span class="df-amt">₹12,50,000</span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, '1250000')">Donate</button>
+                </div>
+                <div class="donatefor-opt" onclick="selectDonateFor(this, '2500000', 'Donate 2000 foodgrain kit')">
+                  <span class="df-name">Donate 2000 foodgrain kit</span>
+                  <span class="df-amt">₹25,00,000</span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, '2500000')">Donate</button>
+                </div>
+                <div class="donatefor-opt df-custom" onclick="selectDonateFor(this, '', 'Amount')">
+                  <span class="df-name">Any amount you wish</span>
+                  <span class="df-custom-input"><span class="df-rupee">₹</span>
+                    <input type="number" id="dfCustomAmount" placeholder="Enter amount" min="1" oninput="syncCustomAmount(this)" />
+                  </span>
+                  <button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, document.getElementById('dfCustomAmount').value)">Donate</button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="field-group">
-            <label>Donation Amount <span class="req">*</span></label>
-            <div class="amount-row">
-              <div class="amount-box">
-                <span class="rupee">₹</span>
-                <input type="number" id="donateAmount" value="1250" min="1" oninput="updateInlineTotal()" />
-              </div>
-              <div class="preset-group once-presets">
-                <button class="amt-preset active" onclick="setInlineAmt(1250,this)">₹1,250</button>
-                <button class="amt-preset" onclick="setInlineAmt(2500,this)">₹2,500</button>
-                <button class="amt-preset" onclick="setInlineAmt(3750,this)">₹3,750</button>
-                <button class="amt-preset" onclick="setInlineAmt(5000,this)">₹5,000</button>
-                <button class="amt-preset" onclick="setInlineAmt(6250,this)">₹6,250</button>
-                <button class="amt-preset" onclick="setInlineAmt(7500,this)">₹7,500</button>
-              </div>
-              <div class="preset-group monthly-presets" style="display:none">
-                <button class="amt-preset active" onclick="setInlineAmt(500,this)">₹500</button>
-                <button class="amt-preset" onclick="setInlineAmt(750,this)">₹750</button>
-                <button class="amt-preset" onclick="setInlineAmt(1000,this)">₹1,000</button>
-                <button class="amt-preset" onclick="setInlineAmt(1250,this)">₹1,250</button>
-                <button class="amt-preset" onclick="setInlineAmt(1500,this)">₹1,500</button>
-              </div>
-            </div>
-          </div>
+          <input type="hidden" id="donateAmount" value="1250" />
         </div>
       </div>
 
       <!-- Description Panels -->
       <div class="dist-panel active" id="panel-ration">
         <div class="dist-desc">
-          <h3><i class="fas fa-shopping-basket"></i> Ration Distribution</h3>
-          <p>Support families with essential dry ration kits including rice, wheat, dal, oil, spices, and other daily
+          <h3><i class="fas fa-shopping-basket"></i> Foodgrain Distribution</h3>
+          <p>Support families with essential dry foodgrain kits including rice, wheat, dal, oil, spices, and other daily
             necessities. Your donation ensures that underprivileged families don't go to bed hungry.</p>
           <div class="dist-impact">
             <span><strong>₹1,500</strong> feeds a family for a month</span>
@@ -915,12 +1180,12 @@
 
       <div class="dist-panel" id="panel-snacks">
         <div class="dist-desc">
-          <h3><i class="fas fa-cookie"></i> Snacks Distribution</h3>
+          <h3><i class="fas fa-cookie"></i> Snack Kit Distribution</h3>
           <p>Provide nutritious snacks to children and elderly in need. Our snack distribution programs reach schools,
             orphanages, and old age homes, ensuring regular healthy bites for those who need them most.</p>
           <div class="dist-impact">
-            <span><strong>₹500</strong> provides snacks for 10 children</span>
-            <span><strong>₹2,500</strong> covers a full distribution drive</span>
+            <span><strong>₹700</strong> provides snacks for 10 children</span>
+            <span><strong>₹3,500</strong> covers a full distribution drive</span>
           </div>
         </div>
       </div>
@@ -939,51 +1204,19 @@
 
       <div class="dist-panel" id="panel-roti">
         <div class="dist-desc">
-          <h3><i class="fas fa-bread-slice"></i> Roti Drive</h3>
-          <p>Our Roti Drive collects and distributes fresh rotis to the hungry. Your contribution supports the
-            logistics, ingredients, and volunteers who make this daily mission possible. Every roti brings a smile.</p>
+          <h3><i class="fas fa-bread-slice"></i> Sevak Rasoi Ghar Seva</h3>
+          <p>Our Sevak Rasoi Ghar Seva provides fresh, nutritious meals to the hungry. Your contribution supports the
+            logistics, ingredients, and volunteers who make this daily mission possible. Every meal brings a smile.</p>
           <div class="dist-impact">
-            <span><strong>₹1,000</strong> feeds 50 people with rotis</span>
+            <span><strong>₹1,000</strong> feeds 50 people with meals</span>
             <span><strong>₹7,000</strong> supports a week-long drive</span>
           </div>
         </div>
       </div>
 
-      <div class="form-grid">
-        <div class="form-group">
-          <label>First Name <span class="req">*</span></label>
-          <input type="text" id="fname" placeholder="First Name" oninput="validateName(this,'fname-error')" />
-          <span class="name-error" id="fname-error">Invalid name</span>
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" id="lname" placeholder="Last Name" oninput="validateName(this,'lname-error')" />
-          <span class="name-error" id="lname-error">Invalid name</span>
-        </div>
-        <div class="form-group">
-          <label>Email <span class="req">*</span></label>
-          <input type="email" id="email" placeholder="Email Address" oninput="validateEmail(this,'email-error')" />
-          <span class="name-error" id="email-error">Invalid email</span>
-        </div>
-        <div class="form-group">
-          <label>Phone <span class="req">*</span></label>
-          <input type="tel" id="phone" placeholder="Phone Number" oninput="validatePhone(this,'phone-error')" />
-          <span class="name-error" id="phone-error">Phone number must contain 10 digits.</span>
-        </div>
-        <div class="form-group full">
-          <label>Message (optional)</label>
-          <textarea id="message" placeholder="Leave a message..." maxlength="100" oninput="validateMsg(this)"></textarea>
-          <span class="name-error" id="msg-error">Only 100 characters accept</span>
-        </div>
-      </div>
-
       <div class="action-row">
-        <div class="total-box">
-          <span class="total-label">Donation Total:</span>
-          <span class="total-val" id="inlineTotal">₹1,250.00</span>
-        </div>
         <button class="donate-btn-inline" onclick="handleInlineDonate()">
-          <i class="fas fa-heart"></i> Donate Now
+          <i className="fas fa-heart"></i> Donate Now
         </button>
       </div>
     </div>
@@ -1038,6 +1271,90 @@
         err.classList.remove('show');
       }
     }
+    const DONATE_FOR_OPTIONS = {
+      ration: [
+        { label: 'Donate 1 foodgrain kit', amount: '1250' },
+        { label: 'Donate 3 foodgrain kit', amount: '3750' },
+        { label: 'Donate 5 foodgrain kit', amount: '6250' },
+        { label: 'Donate 25 foodgrain kit', amount: '31250' },
+        { label: 'Donate 50 foodgrain kit', amount: '62500' },
+        { label: 'Donate 100 foodgrain kit', amount: '125000' },
+        { label: 'Donate 200 foodgrain kit', amount: '250000' },
+        { label: 'Donate 500 foodgrain kit', amount: '625000' },
+        { label: 'Donate 1000 foodgrain kit', amount: '1250000' },
+        { label: 'Donate 2000 foodgrain kit', amount: '2500000' },
+        { custom: true }
+      ],
+      snacks: [
+        { label: 'Donate 10 snack kits', amount: '700' },
+        { label: 'Donate 25 snack kits', amount: '1750' },
+        { label: 'Donate 50 snack kits', amount: '3500' },
+        { label: 'Donate 100 snack kits', amount: '7000' },
+        { label: 'Donate 250 snack kits', amount: '17500' },
+        { label: 'Donate 500 snack kits', amount: '35000' },
+        { label: 'Donate 1000 snack kits', amount: '70000' },
+        { custom: true }
+      ],
+      meal: [
+        { label: 'Donate 50 meals', amount: '1500' },
+        { label: 'Donate 100 meals', amount: '3000' },
+        { label: 'Donate 200 meals', amount: '6000' },
+        { label: 'Donate 500 meals', amount: '15000' },
+        { label: 'Donate 1000 meals', amount: '30000' },
+        { label: 'Donate 2000 meals', amount: '60000' },
+        { label: 'Donate 3000 meals', amount: '90000' },
+        { label: 'Donate 5000 meals', amount: '150000' },
+        { label: 'Donate 10000 meals', amount: '300000' },
+        { custom: true }
+      ],
+      roti: [
+        { label: 'Donate 1 rasoi ghar meal', amount: '50' },
+        { label: 'Donate 50 rasoi ghar meals', amount: '2500' },
+        { label: 'Donate 100 rasoi ghar meals', amount: '5000' },
+        { label: 'Donate 200 rasoi ghar meals', amount: '10000' },
+        { label: 'Donate 500 rasoi ghar meals', amount: '25000' },
+        { label: 'Donate 1000 rasoi ghar meals', amount: '50000' }
+      ]
+    };
+
+    function formatINR(n) {
+      return '₹' + Number(n).toLocaleString('en-IN');
+    }
+
+    function renderDonateFor(dist, keepAmount) {
+      const list = document.getElementById('donateForList');
+      if (!list) return;
+      const options = DONATE_FOR_OPTIONS[dist] || DONATE_FOR_OPTIONS.ration;
+      let html = '<div class="donatefor-opt' + (keepAmount ? ' active' : '') + '" onclick="selectDonateFor(this, \'\', \'Amount\')">' +
+        '<span class="df-name">Donate For</span>' +
+        '<span class="df-amt">Amount</span>' +
+        '</div>';
+      options.forEach(function (o, i) {
+        if (o.custom) {
+          html += '<div class="donatefor-opt df-custom" onclick="selectDonateFor(this, \'\', \'Amount\')">' +
+            '<span class="df-name">Any amount you wish</span>' +
+            '<span class="df-custom-input"><span class="df-rupee">₹</span>' +
+            '<input type="number" id="dfCustomAmount" placeholder="Enter amount" min="1" oninput="syncCustomAmount(this)" />' +
+            '</span>' +
+            '<button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, document.getElementById(\'dfCustomAmount\').value)">Donate</button>' +
+            '</div>';
+          return;
+        }
+        const active = !keepAmount && i === 0 ? ' active' : '';
+        html += '<div class="donatefor-opt' + active + '" onclick="selectDonateFor(this, \'' + o.amount + '\', \'' + o.label + '\')">' +
+          '<span class="df-name">' + o.label + '</span>' +
+          '<span class="df-amt">' + formatINR(o.amount) + '</span>' +
+          '<button type="button" class="df-donate-btn" onclick="event.stopPropagation(); quickDonate(this, \'' + o.amount + '\')">Donate</button>' +
+          '</div>';
+      });
+      list.innerHTML = html;
+      if (!keepAmount && options.length) {
+        document.getElementById('donateAmount').value = options[0].amount;
+        document.querySelectorAll('.amt-preset').forEach(b => b.classList.remove('active'));
+        updateInlineTotal();
+      }
+    }
+
     function selectDist(el) {
       document.querySelectorAll('.dist-tab').forEach(b => b.classList.remove('active'));
       el.classList.add('active');
@@ -1046,52 +1363,81 @@
         void p.offsetHeight;
       });
       document.getElementById('panel-' + el.dataset.dist).classList.add('active');
+      renderDonateFor(el.dataset.dist, false);
     }
 
     let donationFreq = 'once';
     function selectFreq(val, btn) {
+      if (!btn) return;
       document.querySelectorAll('.freq-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       donationFreq = val;
-      document.querySelectorAll('.preset-group').forEach(g => g.style.display = 'none');
-      document.querySelector('.' + val + '-presets').style.display = 'flex';
-      const first = document.querySelector('.' + val + '-presets .amt-preset');
-      if (first) setInlineAmt(parseInt(first.getAttribute('onclick').match(/\d+/)[0]), first);
     }
+    function selectDonateFor(el, amount, label) {
+      document.querySelectorAll('.donatefor-opt').forEach(o => o.classList.remove('active'));
+      el.classList.add('active');
+      if (amount) {
+        document.getElementById('donateAmount').value = amount;
+        document.querySelectorAll('.amt-preset').forEach(b => b.classList.remove('active'));
+        updateInlineTotal();
+      }
+    }
+
+    function syncCustomAmount(el) {
+      document.getElementById('donateAmount').value = el.value;
+      updateInlineTotal();
+    }
+
+    function quickDonate(btn, amount) {
+      if (amount === '' || amount === null || amount === undefined || isNaN(amount)) return;
+      const row = btn.closest ? btn.closest('.donatefor-opt') : null;
+      const nameEl = row ? row.querySelector('.df-name') : null;
+      const label = nameEl ? nameEl.textContent.trim() : 'Donation';
+      const fmt = Number(amount).toLocaleString('en-IN');
+      const donationFor = label + ' – ₹' + fmt;
+      const activeTab = document.querySelector('.dist-tab.active');
+      const mission = activeTab ? activeTab.textContent.trim() : 'Annadaan';
+      const url = '/quick-donate-form?amount=' + encodeURIComponent(amount) +
+        '&for=' + encodeURIComponent(donationFor) +
+        '&mission=' + encodeURIComponent(mission);
+      const target = (window.parent && window.parent !== window) ? window.parent : window;
+      target.location.href = url;
+    }
+
+    function resetDonateFor() {
+      document.querySelectorAll('.donatefor-opt').forEach(o => o.classList.remove('active'));
+      const first = document.querySelector('.donatefor-opt');
+      if (first) first.classList.add('active');
+    }
+
     function setInlineAmt(val, btn) {
+      resetDonateFor();
       document.getElementById('donateAmount').value = val;
       document.querySelectorAll('.amt-preset').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      if (btn) btn.classList.add('active');
       updateInlineTotal();
     }
     function updateInlineTotal() {
+      const el = document.getElementById('inlineTotal');
+      if (!el) return;
       const n = parseFloat(document.getElementById('donateAmount').value) || 0;
-      document.getElementById('inlineTotal').textContent = '₹' + n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      el.textContent = '₹' + n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
     function handleInlineDonate() {
       const amt = document.getElementById('donateAmount').value;
-      const name = document.getElementById('fname').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const phoneErr = document.getElementById('phone-error');
-      if (!phone || phone.length !== 10) {
-        phoneErr.textContent = 'Phone number must contain 10 digits.';
-        phoneErr.classList.add('show');
-        clearTimeout(window._phoneErrTimer);
-        window._phoneErrTimer = setTimeout(() => phoneErr.classList.remove('show'), 3000);
-        return;
-      }
+      const activeOpt = document.querySelector('.donatefor-opt.active .df-name');
+      const label = activeOpt ? activeOpt.textContent.trim() : 'Donation';
+      const fmt = Number(amt || 0).toLocaleString('en-IN');
+      const donationFor = label + ' – ₹' + fmt;
       const activeTab = document.querySelector('.dist-tab.active');
-      const programme = activeTab ? activeTab.textContent.trim() : 'General Donation';
-      donateWithRazorpay({
-        amount: amt,
-        name: name,
-        email: email,
-        phone: phone,
-        description: 'Donation - ' + programme,
-        mission: programme
-      });
+      const mission = activeTab ? activeTab.textContent.trim() : 'Annadaan';
+      const url = '/quick-donate-form?amount=' + encodeURIComponent(amt) +
+        '&for=' + encodeURIComponent(donationFor) +
+        '&mission=' + encodeURIComponent(mission);
+      const target = (window.parent && window.parent !== window) ? window.parent : window;
+      target.location.href = url;
     }
+    renderDonateFor('ration', false);
   </script>
   <!-- WhatsApp Floating Button -->
   <!-- <a href="https://wa.me/918879035035?text=Hello%20Being%20Sevak%20Charitable%20Trust%2C%20I%20would%20like%20to%20know%20more." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
