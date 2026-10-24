@@ -336,7 +336,7 @@ export default function QuickDonate() {
           width: 100%;
           aspect-ratio: 4 / 3;
           min-height: 200px;
-          object-fit: cover;
+          object-fit: contain;
           object-position: center;
           display: block;
           background: #dcebf9;

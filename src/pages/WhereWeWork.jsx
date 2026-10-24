@@ -320,7 +320,7 @@ const WhereWeWork = () => {
           <p>Actively working across multiple states in India through initiatives focused on education, nourishment, healthcare, empowerment and social welfare.</p>
           <div className="hero-buttons"><a href="#locations" className="donate-btn">Explore Locations</a></div>
         </div>
-        <div className="floating-card card1"><h3>12</h3><p>States</p></div>
+        <div className="floating-card card1"><h3>13</h3><p>States</p></div>
         <div className="floating-card card2"><h3>5,000+</h3><p>Volunteers Connected</p></div>
       </section>
 
@@ -328,7 +328,7 @@ const WhereWeWork = () => {
         <div className="www-container">
           <div className="www-header"><h2 className="www-title">Where We <span>Work</span></h2><p className="www-subtitle">Serving communities across India through education, healthcare, empowerment, sustainability and humanitarian initiatives.</p></div>
           <div className="www-counter">
-            <div className="www-counter-item"><span className="www-counter-num" data-target="12">0</span><span className="www-counter-plus">+</span><span className="www-counter-label">States</span></div>
+            <div className="www-counter-item"><span className="www-counter-num" data-target="13">0</span><span className="www-counter-plus">+</span><span className="www-counter-label">States</span></div>
             <div className="www-counter-divider"></div>
             <div className="www-counter-item"><span className="www-counter-num" data-target="100">0</span><span className="www-counter-plus">+</span><span className="www-counter-label">Projects</span></div>
             <div className="www-counter-divider"></div>

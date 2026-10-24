@@ -56,6 +56,7 @@ export default function MissionHero({ mission }) {
           max-width: none;
           font-size: 14px;
           line-height: 1.6;
+          white-space: pre-line;
           color: #5b6b7d;
           margin: 8px 0 0;
           text-align: left;
