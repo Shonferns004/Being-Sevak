@@ -6,9 +6,9 @@ export default function Home() {
 
 
   // Quick Donate
-  const [quickAmt, setQuickAmt] = useState(200);
+  const [quickAmt, setQuickAmt] = useState(1000);
 
-  const [activePreset, setActivePreset] = useState(200);
+  const [activePreset, setActivePreset] = useState(1000);
 
   // Donation Basket
   const [basketOpen, setBasketOpen] = useState(false);
@@ -134,7 +134,7 @@ export default function Home() {
   };
 
   // Donation Basket logic
-  const UNIT_PRICE = { annapurna: 500, vidhya: 400, aurat: 300, atma: 600, bezubaan: 200 };
+  const UNIT_PRICE = { annapurna: 1500, vidhya: 5000, aurat: 1000, atma: 19000, bezubaan: 5000 };
   const basketMissions = [
     { key: 'annapurna', icon: '\u{1F33E}', name: 'Mission Annapurna', desc: 'Dry Ration Kits & Mid-Day Meals for Visually Impaired & Underprivileged Individuals' },
     { key: 'vidhya', icon: '\u{1F4DA}', name: 'Mission Vidhya', desc: 'D.E.C \u2013 Digital Education Centre, Free digital education, Writing Pad & Stationery Kit Distribution' },
@@ -379,10 +379,10 @@ export default function Home() {
               onChange={(e) => setQuickAmt(e.target.value)}
             />
           </div>
-          <button className={`preset-amt ${activePreset === 100 ? 'active' : ''}`} onClick={() => handlePresetClick(100)}>₹100 INR</button>
-          <button className={`preset-amt ${activePreset === 150 ? 'active' : ''}`} onClick={() => handlePresetClick(150)}>₹150 INR</button>
-          <button className={`preset-amt ${activePreset === 200 ? 'active' : ''}`} onClick={() => handlePresetClick(200)}>₹200 INR</button>
-          <button className={`preset-amt ${activePreset === 500 ? 'active' : ''}`} onClick={() => handlePresetClick(500)}>₹500 INR</button>
+          <button className={`preset-amt ${activePreset === 1000 ? 'active' : ''}`} onClick={() => handlePresetClick(1000)}>₹1,000 INR</button>
+          <button className={`preset-amt ${activePreset === 5000 ? 'active' : ''}`} onClick={() => handlePresetClick(5000)}>₹5,000 INR</button>
+          <button className={`preset-amt ${activePreset === 10000 ? 'active' : ''}`} onClick={() => handlePresetClick(10000)}>₹10,000 INR</button>
+          <button className={`preset-amt ${activePreset === 15000 ? 'active' : ''}`} onClick={() => handlePresetClick(15000)}>₹15,000 INR</button>
           <div className="payment-icons">
             <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/paypal.svg" alt="PayPal" className="pay-icon"
               onError={(e) => { e.target.outerHTML = '<span class="pay-icon-fb">PayPal</span>'; }} />

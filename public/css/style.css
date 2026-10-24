@@ -5295,6 +5295,38 @@ body{
   .hamburger { width: 34px; height: 34px; font-size: 17px; margin-left: 0; }
 }
 
-/* Global mobile safety */
-html, body { overflow-x: hidden; max-width: 100%; }
+/* Global mobile safety
+   NOTE: overflow-x: clip (not hidden) - `hidden` on html/body creates a scroll
+   container, which breaks position: sticky for every descendant. `clip` prevents
+   horizontal scroll without creating a scroll container. */
+html, body { overflow-x: clip; max-width: 100%; background: #f4f6f8; }
 img { max-width: 100%; }
+
+/* Hide the "Learn more" link inside mission / service card grids.
+   These cards are informational only - the link had no real destination. */
+.mission-card a.learn-more,
+.mission-card a.learn-more-link,
+.mission-card a.read-more,
+.mission-card a.card-link,
+.mission-cards a.learn-more,
+.mission-cards a.learn-more-link,
+.mission-cards a.read-more,
+.mission-cards a.card-link,
+.mission-section a.learn-more,
+.mission-section a.learn-more-link,
+.mission-section a.read-more,
+.highlight-card a.learn-more,
+.highlight-card a.learn-more-link,
+.highlight-card a.read-more,
+.highlight-cards a.learn-more,
+.highlight-cards a.learn-more-link,
+.service-card a.learn-more,
+.service-card a.learn-more-link,
+.services-section a.learn-more,
+.services-section a.learn-more-link,
+.mission-card a[href="#"],
+.mission-cards a[href="#"],
+.highlight-card a[href="#"],
+.service-card a[href="#"] {
+  display: none !important;
+}

@@ -1,31 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import MissionDonate from '../components/MissionDonate';
+import MissionHero from '../components/MissionHero';
+import BankDetails from '../components/BankDetails';
 
 const MissionBezubaan = () => {
-  const iframeRef = useRef(null);
-
-  useEffect(() => {
-    function handleMessage(e) {
-      if (iframeRef.current && typeof e.data === 'number') {
-        iframeRef.current.style.height = e.data + 'px';
-      }
-    }
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
-
   return (
     <>
       <style>{`
         .mission-bezubaan * { margin: 0; padding: 0; box-sizing: border-box; }
-        .mission-bezubaan { font-family: 'Montserrat', sans-serif; background: #ffffff; color: #111827; overflow-x: hidden; }
+        .mission-bezubaan { font-family: 'Montserrat', sans-serif; background: #ffffff; color: #111827; overflow-x: hidden; overflow-x: clip; }
+        .mission-bezubaan h1, .mission-bezubaan h2, .mission-bezubaan h3, .mission-bezubaan h4, .mission-bezubaan p { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
         .mission-bezubaan img { width: 100%; max-width: 100%; height: auto; display: block; }
         .mission-bezubaan section { overflow: hidden; }
 
         .mission-bezubaan .tax-box {
           width: 100%; height: 70px; display: flex; justify-content: center; align-items: center;
           text-align: center; background: linear-gradient(to right, #009BD4 0%, #0285C3 25%, #046FB1 50%, #074D97 75%, #083D8B 100%);
-          color: #fff; margin: 20px 0; padding: 10px; border-radius: 0;
+          color: #fff; margin: 10px 0; padding: 10px; border-radius: 0;
           box-shadow: 0 15px 40px rgba(0,0,0,0.15); position: relative; overflow: hidden; transition: 0.4s ease;
         }
         .mission-bezubaan .tax-box h1 { font-size: 28px; font-weight: 700; position: relative; z-index: 2; }
@@ -52,7 +43,7 @@ const MissionBezubaan = () => {
         .mission-bezubaan .hero-left, .mission-bezubaan .hero-right { flex: 1; }
         .mission-bezubaan .mini-title {
           background: transparent; color: #00a3da; padding: 0; border-radius: 0;
-          display: inline-block; margin-bottom: 8px; font-weight: 800; font-size: 16px; letter-spacing: 1px;
+          display: inline-block; margin-bottom: 8px; font-weight: 800; font-size: 16px; letter-spacing: 0;
         }
         .mission-bezubaan .hero-left h1 { font-size: 42px; line-height: 1.15; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px; }
         .mission-bezubaan .hero-left h1 span { color: #00a3da; }
@@ -118,7 +109,7 @@ const MissionBezubaan = () => {
         .mission-bezubaan .mission-section { width: 100%; padding: 0px 7%; background: #f8fbfd; }
         .mission-bezubaan .section-title { text-align: center; margin-bottom: 60px; }
         .mission-bezubaan .section-title h2 { font-size: 34px; line-height: 1.12; margin-bottom: 12px; font-weight: 800; }
-        .mission-bezubaan .section-title span { color: #00a3da; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 8px; }
+        .mission-bezubaan .section-title span { color: #00a3da; font-size: 14px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; display: block; margin-bottom: 8px; }
         .mission-bezubaan .mission-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
         .mission-bezubaan .mission-card {
           background: #fff; padding: 40px 30px; border-radius: 30px; transition: 0.4s;
@@ -151,7 +142,7 @@ const MissionBezubaan = () => {
         }
         .mission-bezubaan .impact-image:hover img { transform: scale(1.04); }
         .mission-bezubaan .impact-content h2 { font-size: 36px; line-height: 1.12; margin-bottom: 10px; font-weight: 800; }
-        .mission-bezubaan .impact-content span { color: #00a3da; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 8px; }
+        .mission-bezubaan .impact-content span { color: #00a3da; font-size: 14px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; display: block; margin-bottom: 8px; }
         .mission-bezubaan .impact-content p { color: #6b7280; line-height: 1.8; font-size: 16px; }
         .mission-bezubaan .impact-stats { display: flex; gap: 22px; margin-top: 35px; flex-wrap: wrap; }
         .mission-bezubaan .impact-stats div {
@@ -165,7 +156,7 @@ const MissionBezubaan = () => {
 
         .mission-bezubaan .gallery-section { width: 100%; padding: 10px 7%; background: #f8fbfd; }
         .mission-bezubaan .gallery-title { text-align: center; margin-bottom: 60px; }
-        .mission-bezubaan .gallery-title span { color: #00a3da; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 8px; }
+        .mission-bezubaan .gallery-title span { color: #00a3da; font-size: 14px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; display: block; margin-bottom: 8px; }
         .mission-bezubaan .gallery-title h2 { font-size: 34px; line-height: 1.12; margin-bottom: 12px; font-weight: 800; }
         .mission-bezubaan .gallery-grid {
           max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;
@@ -214,7 +205,7 @@ const MissionBezubaan = () => {
         }
         .mission-bezubaan .sevak-donation-content { width: 100%; max-width: 1350px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
         .mission-bezubaan .sevak-left { display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 300px; }
-        .mission-bezubaan .sevak-tag { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+        .mission-bezubaan .sevak-tag { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 0; text-transform: uppercase; }
         .mission-bezubaan .sevak-title { font-size: 52px; margin: 0; line-height: 1.15; font-weight: 800; color: #fff; }
         .mission-bezubaan .sevak-desc { font-size: 17px; margin: 0; color: rgba(255,255,255,0.9); line-height: 1.8; max-width: 650px; }
         .mission-bezubaan .sevak-right { flex-shrink: 0; }
@@ -322,6 +313,11 @@ const MissionBezubaan = () => {
           <h1>Mission Bezubaan</h1>
         </section>
 
+        <MissionHero mission="bezubaan" />
+
+        <MissionDonate mission="bezubaan" />
+        <BankDetails />
+
         <section className="hero-section">
           <div className="hero-content">
             <div className="hero-left">
@@ -353,15 +349,6 @@ const MissionBezubaan = () => {
             </div>
           </div>
         </section>
-
-        <div id="donate" style={{ width: '100%', background: '#f4f7fb', padding: '0', overflow: 'hidden', marginBottom: '0', position: 'relative', zIndex: 10, isolation: 'isolate' }}>
-          <iframe
-            ref={iframeRef}
-            src="/donations/donation-inline-bezubaan.html"
-            style={{ width: '100%', height: '650px', border: 'none', display: 'block' }}
-            title="Donate to Mission Bezubaan"
-          />
-        </div>
 
         <section className="about-section" id="about">
           <div className="about-image">

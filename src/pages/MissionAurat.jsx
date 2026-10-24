@@ -1,24 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import MissionDonate from '../components/MissionDonate';
+import MissionHero from '../components/MissionHero';
+import BankDetails from '../components/BankDetails';
 
 const MissionAurat = () => {
-  const iframeRef = useRef(null);
-
-  useEffect(() => {
-    function handleMessage(e) {
-      if (iframeRef.current && typeof e.data === 'number') {
-        iframeRef.current.style.height = e.data + 'px';
-      }
-    }
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
-
   return (
     <>
       <style>{`
         .mission-aurat * { margin: 0; padding: 0; box-sizing: border-box; }
-        .mission-aurat { font-family: 'Montserrat', sans-serif; background: #fff; color: #1f2937; overflow-x: hidden; }
+        .mission-aurat { font-family: 'Montserrat', sans-serif; background: #fff; color: #1f2937; overflow-x: hidden; overflow-x: clip; }
+        .mission-aurat h1, .mission-aurat h2, .mission-aurat h3, .mission-aurat h4, .mission-aurat p { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
         .mission-aurat img { width: 100%; display: block; }
 
         .mission-aurat .tax-box {
@@ -39,7 +30,7 @@ const MissionAurat = () => {
         .mission-aurat .hero { width: 100%; padding: 7px 20px 40px; background: #fff; }
         .mission-aurat .hero-content { max-width: 1200px; margin: auto; min-height: 85vh; display: flex; align-items: center; justify-content: space-between; gap: 60px; }
         .mission-aurat .hero-left, .mission-aurat .hero-right { flex: 1; }
-        .mission-aurat .mini-title { background: transparent; color: #00a3da; padding: 0; border-radius: 0; display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 24px; letter-spacing: 1px; }
+        .mission-aurat .mini-title { background: transparent; color: #00a3da; padding: 0; border-radius: 0; display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 24px; letter-spacing: 0; }
         .mission-aurat .hero-left h1 { font-size: 40px; line-height: 1.08; margin-bottom: 10px; font-weight: 800; letter-spacing: -0.5px; }
         .mission-aurat .hero-left h1 span { color: #00a3da; }
         .mission-aurat .hero-left p { font-size: 18px; line-height: 1.9; color: #4b5563; margin-bottom: 35px; max-width: 600px; }
@@ -78,7 +69,7 @@ const MissionAurat = () => {
         .mission-aurat .about-content { flex: 1; }
         .mission-aurat .about-content span {
           display: inline-block; background: #e8f9ff; color: #00a3da; padding: 7px 16px;
-          border-radius: 50px; font-size: 15px; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px;
+          border-radius: 50px; font-size: 15px; font-weight: 700; letter-spacing: 0; margin-bottom: 10px;
         }
         .mission-aurat .about-content h2 { font-size: 34px; line-height: 1.15; color: #111827; margin-bottom: 12px; font-weight: 800; }
         .mission-aurat .about-content p { font-size: 15px; line-height: 1.9; color: #6b7280; margin-bottom: 30px; }
@@ -110,7 +101,7 @@ const MissionAurat = () => {
         .mission-aurat .impact-content { flex: 1; max-width: 550px; }
         .mission-aurat .impact-content span {
           display: inline-block; background: #e8f9ff; color: #00a3da; padding: 7px 16px;
-          border-radius: 50px; font-size: 15px; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px;
+          border-radius: 50px; font-size: 15px; font-weight: 700; letter-spacing: 0; margin-bottom: 10px;
         }
         .mission-aurat .impact-content h2 { font-size: 36px; line-height: 1.15; color: #111827; margin-bottom: 10px; font-weight: 800; }
         .mission-aurat .impact-content p { font-size: 15px; line-height: 1.7; color: #6b7280; }
@@ -124,7 +115,7 @@ const MissionAurat = () => {
 
         .mission-aurat .gallery-section { width: 100%; padding: 40px 20px; }
         .mission-aurat .gallery-title { max-width: 800px; margin: auto; text-align: center; margin-bottom: 60px; }
-        .mission-aurat .gallery-title span { color: #00a3da; font-size: x-large; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .mission-aurat .gallery-title span { color: #00a3da; font-size: x-large; font-weight: 700; letter-spacing: 0; text-transform: uppercase; }
         .mission-aurat .gallery-title h2 { font-size: 48px; margin: 15px 0; font-weight: 800; }
         .mission-aurat .gallery-title p { color: #6b7280; line-height: 1.9; }
         .mission-aurat .gallery-grid { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 25px; }
@@ -243,8 +234,13 @@ const MissionAurat = () => {
 
       <div className="mission-aurat">
         <section className="tax-box">
-          <p><h1>Mission Aurat</h1></p>
+          <h1>Mission Aurat</h1>
         </section>
+
+        <MissionHero mission="aurat" />
+
+        <MissionDonate mission="aurat" />
+        <BankDetails />
 
         <section className="hero">
           <div className="hero-content">
@@ -271,15 +267,6 @@ const MissionAurat = () => {
             </div>
           </div>
         </section>
-
-        <div id="donate" style={{ width: '100%', background: '#f4f7fb', padding: '0', overflow: 'hidden', position: 'relative', zIndex: 10, isolation: 'isolate', marginBottom: '0' }}>
-          <iframe
-            ref={iframeRef}
-            src="/donations/donation-inline-aurat.html"
-            style={{ width: '100%', height: '650px', border: 'none', display: 'block' }}
-            title="Donate to Mission Aurat"
-          />
-        </div>
 
         <section className="about-section" id="about">
           <div className="about-image">
@@ -310,6 +297,7 @@ const MissionAurat = () => {
           </div>
         </section>
 
+
         <section className="mission-section" id="mission">
           <div className="impact-content">
             <span>Our Mission</span>
@@ -331,6 +319,39 @@ const MissionAurat = () => {
               <h3>Community Support</h3>
               <p>Building safe and supportive communities where women can grow confidently.</p>
             </div>
+          </div>
+        </section>
+
+<section className="about-section">
+          <div className="about-content">
+            <span className="mini-title" style={{ textAlign: "center", display: "block" }}>Baby Feeding Project</span>
+            <h2 style={{ textAlign: "center" }}>Safe Feeding Spaces For Mothers & Babies</h2>
+            <p>
+              Our Baby Feeding Project initiative creates safe and comfortable feeding
+              spaces where mothers can feed and care for their babies peacefully in
+              public places with privacy, hygiene and proper support.
+            </p>
+            <div className="about-grid">
+              <div className="about-box">
+                <h3>Baby Feeding Rooms</h3>
+                <p>Providing clean and safe feeding areas for mothers and babies.</p>
+              </div>
+              <div className="about-box">
+                <h3>Mother Support</h3>
+                <p>Helping mothers with comfortable care facilities in public places.</p>
+              </div>
+              <div className="about-box">
+                <h3>Hygienic Environment</h3>
+                <p>Maintaining cleanliness and safety for newborn baby care.</p>
+              </div>
+              <div className="about-box">
+                <h3>Public Care Centers</h3>
+                <p>Setting up baby care centers at different public locations.</p>
+              </div>
+            </div>
+          </div>
+          <div className="about-image">
+            <img src="/images/g1.jpeg" alt="Baby Feeding Project" />
           </div>
         </section>
 

@@ -241,7 +241,7 @@ export default function Anndaan() {
               <Link to="/donate" className="kitcare-btn">Support Annapurna Mission</Link>
             </div>
             <div className="kitcare-gallery">
-              <img src="/images/a1.jpeg" alt="" />
+              <img src="/images/hj.png" alt="" />
               <img src="/images/a4.jpeg" alt="" />
               <img src="/images/a3.jpg" alt="" />
               <img src="/images/hj.png" alt="" style={{ borderRadius: '12px' }} />

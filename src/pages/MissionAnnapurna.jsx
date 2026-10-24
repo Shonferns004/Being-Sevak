@@ -1,24 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import MissionDonate from '../components/MissionDonate';
+import MissionHero from '../components/MissionHero';
+import BankDetails from '../components/BankDetails';
 
 const MissionAnnapurna = () => {
-  const iframeRef = useRef(null);
-
-  useEffect(() => {
-    function handleMessage(e) {
-      if (iframeRef.current && typeof e.data === 'number') {
-        iframeRef.current.style.height = e.data + 'px';
-      }
-    }
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
-
   return (
     <>
       <style>{`
         .mission-annapurna * { margin: 0; padding: 0; box-sizing: border-box; }
         .mission-annapurna { font-family: 'Poppins', sans-serif; background: #f4f6f8; color: #315270; overflow-x: hidden; overflow-x: clip; position: relative; }
+        .mission-annapurna h1, .mission-annapurna h2, .mission-annapurna h3, .mission-annapurna h4, .mission-annapurna p { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
         .mission-annapurna img { width: 100%; display: block; }
 
         .mission-annapurna .tax-box {
@@ -41,7 +32,7 @@ const MissionAnnapurna = () => {
           gap: 0; position: relative; overflow: hidden; padding: 0 4%;
         }
         .mission-annapurna .hero-content { position: relative; z-index: 2; }
-        .mission-annapurna .tag { background: transparent; color: #00a3da; padding: 0; border-radius: 0; display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 24px; letter-spacing: 1px; }
+        .mission-annapurna .tag { background: transparent; color: #00a3da; padding: 0; border-radius: 0; display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 24px; letter-spacing: 0; }
         .mission-annapurna .hero h1 { font-size: 46px; line-height: 1.15; font-weight: 800; margin-bottom: 14px; }
         .mission-annapurna .hero h1 span { color: #00a3da; }
         .mission-annapurna .hero p { font-size: 18px; line-height: 1.9; color: #66788a; margin-bottom: 35px; }
@@ -296,53 +287,10 @@ const MissionAnnapurna = () => {
           <h1>Mission Annapurna</h1>
         </section>
 
-        <section className="hero">
-          <div className="hero-content">
-            <span className="tag tag-big">Annadaan</span>
-            <h1 className="hero-title-fix">Help Being Sevak serve <span>Annadaan Seva</span><br />to Society</h1>
-            <p>
-              Being Sevak Charitable Trust presents the Annapurna Mission: Fight against Hunger, a humanitarian initiative dedicated to addressing hunger and malnutrition among underprivileged children, visually impaired individuals, and low-income families across India.
-            </p>
-            <div className="hero-buttons">
-              <a href="#donate" className="donate-btn-hero">Support The Mission</a>
-            </div>
-          </div>
-          <div className="hero-image">
-            <div className="floating-card card1">
-              <h3>102K+</h3>
-              <p>Annapurna Kits</p>
-            </div>
-            <div className="floating-card card2">
-              <h3>12K+</h3>
-              <p>Meals Distributed</p>
-            </div>
-            <img src="/images/a1.jpeg" alt="ngo" />
-          </div>
-          <div className="blur blur1"></div>
-          <div className="blur blur2"></div>
-        </section>
+        <MissionHero mission="annapurna" />
 
-        <div id="donate" className="donate-split">
-          <div className="donate-split-left">
-            <iframe
-              ref={iframeRef}
-              src="/donations/donation-inline.html"
-              style={{ width: '100%', height: '900px', border: 'none', display: 'block' }}
-              title="Donate to Mission Annapurna"
-            />
-          </div>
-          <div className="donate-split-right">
-            <div className="donate-gallery">
-              <img className="g-big" src="/images/a1.jpeg" alt="Annapurna Ration Distribution" />
-              <div className="g-smalls">
-                <img src="/images/a3.jpg" alt="Food Distribution" />
-                <img src="/images/a4.jpeg" alt="Ration Kit Distribution" />
-                <img src="/images/hj.png" alt="Community Meal Service" />
-                <img src="/images/roti1.jpg" alt="Roti Drive" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <MissionDonate mission="annapurna" />
+        <BankDetails />
 
         <section className="hero hero-repeat">
           <div className="hero-content">
@@ -364,7 +312,7 @@ const MissionAnnapurna = () => {
               <h3>12K+</h3>
               <p>Meals Distributed</p>
             </div>
-            <img src="/images/a1.jpeg" alt="ngo" />
+            <img src="/images/hj.png" alt="ngo" />
           </div>
           <div className="blur blur1"></div>
           <div className="blur blur2"></div>
@@ -398,7 +346,7 @@ const MissionAnnapurna = () => {
           </div>
         </section>
 
-        <section className="highlight-section" id="highlights">
+        {/* <section className="highlight-section" id="highlights">
           <div className="section-header">
             <span>OUR PROGRAMS</span>
             <p>
@@ -430,11 +378,11 @@ const MissionAnnapurna = () => {
               <p>Distributing fresh and hygienic meals to needy families, laborers, senior citizens, and homeless individuals to ensure that no person sleeps hungry.</p>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="gallery-section">
           <div className="gallery-grid">
-            <div className="gallery-card"><img src="/images/a6.jpg" alt="gallery" /></div>
+            <div className="gallery-card"><img src="/images/rasoi.jpeg" alt="gallery" /></div>
             <div className="gallery-card"><img src="/images/a3.jpg" alt="gallery" /></div>
             <div className="gallery-card"><img src="/images/snackKit.jpeg" alt="gallery" /></div>
             <div className="gallery-card"><img src="/images/rotidrive.jpeg" alt="gallery" /></div>

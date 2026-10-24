@@ -9,7 +9,6 @@ Task Log - Being Sevak 2.0
 
 3. Created donation-inline-atmanirbhar.html
    - 6 tabs: Tools of Life, Rozgaar Booth, Sewing Machine, Floor Mill, Tricycle, Blind Stick
-   - Amount presets: ₹1,250 / ₹2,500 / ₹3,750 / ₹5,000 / ₹6,250 / ₹7,500
    - Frequency: Just Once / Give Monthly
    - Full donor form with Razorpay integration
 
@@ -43,7 +42,6 @@ Task Log - Being Sevak 2.0
 
 13. Created donation-inline-arogya.html
    - 2 tabs: Mission for Vision, Medical Emergency
-   - Amount presets: ₹1,250 / ₹2,500 / ₹3,750 / ₹5,000 / ₹6,250 / ₹7,500
    - Frequency: Just Once / Give Monthly
    - Full donor form with Razorpay integration
    - fa-heartbeat icon in header

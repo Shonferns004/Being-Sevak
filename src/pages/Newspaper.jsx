@@ -66,6 +66,7 @@ const Newspaper = () => {
     <>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        h1, h2, h3, h4, .tag, .section-title { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
         :root{--navy:#03163E;--mid:#315371;--cyan:#00A2D9;--cyan-light:#33bce8;--green:#2eb85c;--white:#ffffff;--light-bg:#f4f7fb;--text-dark:#1a1a2e;--text-mid:#4a5568;--gold:#D4AF37;}
         body{font-family:'Open Sans',sans-serif;color:var(--text-dark);background:#fff;}
         .tax-box{width:100%;height:70px;display:flex;justify-content:center;align-items:center;text-align:center;background:linear-gradient(to right, #009BD4 0%, #0285C3 25%, #046FB1 50%, #074D97 75%, #083D8B 100%);color:#fff;border-radius:0px;margin:20px 0;padding:10px;}
