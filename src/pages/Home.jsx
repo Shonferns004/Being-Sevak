@@ -607,18 +607,18 @@ export default function Home() {
       <section className="donation-section">
         <div className="donation-images">
           <div className="img-box img1">
-            <img src="images/m1.jpeg" alt="" />
+            <img src="/images/m1.jpeg" alt="" />
           </div>
         </div>
         <div className="donation-content">
           <span className="small-title">
-            <h3>Support Education</h3>
+            <h2>Support Education</h2>
           </span>
-          <h1 style={{ fontSize: 'clamp(24px, 4.5vw, 36px)', marginBottom: '20px', lineHeight: '1.3' }}>
+          <h1 style={{ fontSize: 'clamp(24px, 4.5vw, 36px)', margin: '0 0 4px', lineHeight: '1.15' }}>
             Nourishing Lives <br />
             Through Every Meal & Ration Kit
           </h1>
-          <h1>
+          <h1 style={{ margin: '0 0 8px', lineHeight: '1.15' }}>
             Help Us Transform <br />
             A Child's Life
           </h1>

@@ -12,6 +12,16 @@ import { missions } from '../data/missions';
  * right under the paragraph. The repeated hero below Bank Details is left
  * untouched on each page.
  */
+function renderBold(text) {
+  const parts = String(text).split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
+
 export default function MissionHero({ mission }) {
   const cfg = missions[mission];
   if (!cfg || !cfg.hero) return null;
@@ -63,6 +73,10 @@ export default function MissionHero({ mission }) {
           hyphens: manual;
           -webkit-hyphens: manual;
         }
+        .mission-hero-p strong {
+          color: #1c2b36;
+          font-weight: 700;
+        }
 
         @media (max-width: 991px) {
           .mission-hero-kicker { font-size: 22px; }
@@ -87,7 +101,7 @@ export default function MissionHero({ mission }) {
             </span>
           ))}
         </h2>
-        <p className="mission-hero-p">{paragraph}</p>
+        <p className="mission-hero-p">{renderBold(paragraph)}</p>
       </section>
     </>
   );
