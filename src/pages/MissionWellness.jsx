@@ -1,32 +1,23 @@
 import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import MissionDonate from '../components/MissionDonate';
+import MissionHero from '../components/MissionHero';
+import BankDetails from '../components/BankDetails';
 
 export default function MissionWellness() {
-  const iframeRef = useRef(null);
-
-  useEffect(() => {
-    function handleMessage(e) {
-      if (iframeRef.current && typeof e.data === 'number') {
-        iframeRef.current.style.height = e.data + 'px';
-      }
-    }
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
-
   return (
     <>
       <style>{`
         .mission-wellness * { margin: 0; padding: 0; box-sizing: border-box; }
-        .mission-wellness { font-family: 'Poppins', sans-serif; background: #f4f6f8; color: #315270; overflow-x: hidden; }
+        .mission-wellness { font-family: 'Poppins', sans-serif; background: #f4f6f8; color: #315270; overflow-x: hidden; overflow-x: clip; }
+        .mission-wellness h1, .mission-wellness h2, .mission-wellness h3, .mission-wellness h4, .mission-wellness p { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
         .mission-wellness img { width: 100%; display: block; }
         .mission-wellness section { overflow: hidden; }
 
         .mission-wellness .tax-box {
           width: 100%; height: 70px; display: flex; justify-content: center; align-items: center;
           text-align: center; background: linear-gradient(to right, #009BD4 0%, #0285C3 25%, #046FB1 50%, #074D97 75%, #083D8B 100%);
-          color: #fff; margin: 20px 0; padding: 10px; border-radius: 0;
-          box-shadow: 0 15px 40px rgba(0,0,0,0.15); position: relative; overflow: hidden; transition: 0.4s ease;
+          color: #fff; margin: 10px 0; padding: 10px; border-radius: 0;
+          box-shadow: 0 15px 40px rgba(0,0,0,0.15); position: relative; overflow: hidden; text-align: center; transition: 0.4s ease;
         }
         .mission-wellness .tax-box h1 { font-size: 28px; font-weight: 700; position: relative; z-index: 2; }
         .mission-wellness .tax-box p { font-size: 16px; line-height: 1.6; position: relative; z-index: 2; text-align: center; }
@@ -46,7 +37,7 @@ export default function MissionWellness() {
         .mission-wellness .hero-left { flex: 1; max-width: 520px; }
         .mission-wellness .mini-title {
           background: transparent; color: #00a3da; padding: 0; border-radius: 0;
-          display: inline-block; margin-bottom: 8px; font-weight: 800; font-size: 16px; letter-spacing: 1px;
+          display: inline-block; margin-bottom: 8px; font-weight: 800; font-size: 16px; letter-spacing: 0;
         }
         .mission-wellness .hero-left h1 { font-size: 46px; line-height: 1.15; font-weight: 800; color: #1c2b36; margin-bottom: 14px; }
         .mission-wellness .hero-left h1 span { color: #00a3da; }
@@ -91,7 +82,7 @@ export default function MissionWellness() {
         .mission-wellness .about-image { position: relative; overflow: hidden; isolation: isolate; }
         .mission-wellness .about-image img { width: 100%; height: 450px; object-fit: cover; border-radius: 35px; transition: 0.5s; box-shadow: 0 18px 45px rgba(0,0,0,0.08); }
         .mission-wellness .about-image:hover img { transform: scale(1.04) rotate(-1deg); }
-        .mission-wellness .about-content span { color: #00a3da; font-size: 14px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 8px; }
+        .mission-wellness .about-content span { color: #00a3da; font-size: 14px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; display: block; margin-bottom: 8px; }
         .mission-wellness .about-content h2 { font-size: 34px; line-height: 1.12; margin-bottom: 12px; font-weight: 800; }
         .mission-wellness .about-content h2 span { display: inline; color: #00a3da; font-size: inherit; font-weight: inherit; letter-spacing: normal; text-transform: none; margin-bottom: 0; }
         .mission-wellness .about-content p { color: #6b7280; line-height: 1.9; font-size: 16px; }
@@ -106,7 +97,7 @@ export default function MissionWellness() {
 
         .mission-wellness .mission-section { width: 100%; padding: 60px 5%; background: #f8fbfd; }
         .mission-wellness .section-title { text-align: center; margin-bottom: 60px; }
-        .mission-wellness .section-title span { color: #00a3da; font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 15px; }
+        .mission-wellness .section-title span { color: #00a3da; font-size: 20px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; display: block; margin-bottom: 15px; }
         .mission-wellness .section-title h2 { font-size: 52px; line-height: 1.15; margin-bottom: 20px; font-weight: 800; }
         .mission-wellness .mission-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
         .mission-wellness .mission-card {
@@ -143,7 +134,7 @@ export default function MissionWellness() {
 
         .mission-wellness .gallery-section { width: 100%; padding: 60px 5%; background: #f8fbfd; }
         .mission-wellness .gallery-title { text-align: center; margin-bottom: 60px; }
-        .mission-wellness .gallery-title span { color: #00a3da; font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 15px; }
+        .mission-wellness .gallery-title span { color: #00a3da; font-size: 20px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; display: block; margin-bottom: 15px; }
         .mission-wellness .gallery-title h2 { font-size: 52px; line-height: 1.15; margin-bottom: 20px; font-weight: 800; }
         .mission-wellness .gallery-grid { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 260px; gap: 25px; }
         .mission-wellness .gallery-item { position: relative; overflow: hidden; border-radius: 30px; cursor: pointer; }
@@ -286,50 +277,31 @@ export default function MissionWellness() {
 
       <div className="mission-wellness">
         <section className="tax-box">
-          <h1>Mission Aarogya</h1>
+          <h1>Mission Arogya</h1>
         </section>
 
-        <section className="hero-section">
-          <div className="hero-content">
-            <div className="hero-left">
-              <span className="mini-title">Mission Aarogya</span>
-              <h1>
-                Bringing <span>Health</span><br />
-                Into Every Life
-              </h1>
-              <p>
-                Mission Aarogya by Being Sevak Charitable Trust provides healthcare support,
-                medical assistance, emergency aid and wellness initiatives for underprivileged
-                communities across India.
-              </p>
-              <div className="hero-buttons">
-                <a href="#donate" className="primary-btn">Donate Now</a>
+        <MissionHero mission="arogya" />
+
+        <MissionDonate mission="arogya" />
+        <BankDetails />
+
+        <section className="hero-section" style={{ width: '100%', padding: '48px 5% 32px', marginBottom: 0 }}>
+          <div className="hero-content" style={{ maxWidth: '800px', margin: 'auto' }}>
+            <div className="hero-left" style={{ flex: 1 }}>
+              <span className="mini-title" style={{ background: 'transparent', color: '#00a3da', padding: 0, borderRadius: 0, display: 'inline-block', marginBottom: '8px', fontWeight: 800, fontSize: '16px', letterSpacing: '0' }}>Healthcare Initiative</span>
+              <h1 style={{ fontSize: '46px', lineHeight: '1.15', fontWeight: 800, color: '#1c2b36', marginBottom: '14px' }}>Healthcare <span style={{ color: '#00a3da' }}>For All</span></h1>
+              <p style={{ fontSize: '18px', lineHeight: '1.9', color: '#66788a', marginBottom: '35px' }}>Mission Arogya supports healthcare camps, medicine distribution, dialysis and critical surgery support for underprivileged patients who cannot afford treatment.</p>
+              <div className="hero-buttons" style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                <a href="#donate" className="primary-btn" style={{ textDecoration: 'none', padding: '16px 34px', borderRadius: '50px', fontSize: '18px', fontWeight: 600, transition: '0.3s', display: 'inline-block', background: '#00a3da', color: '#fff', boxShadow: '0 15px 35px rgba(0,163,218,0.35)' }}>Support Healthcare</a>
               </div>
             </div>
-            <div className="hero-right">
-              <div className="image-box">
-                <img src="/images/pe.jpeg" alt="Mission Aarogya" />
-                <div className="floating-card card1">
-                  <h3>3000+</h3>
-                  <p>Lives Supported</p>
-                </div>
-                <div className="floating-card card2">
-                  <h3>24/7</h3>
-                  <p>Care Support</p>
-                </div>
+            <div className="hero-right" style={{ flex: 1, maxWidth: '50%', display: 'flex', justifyContent: 'flex-end' }}>
+              <div className="image-box" style={{ width: '100%', maxWidth: '560px', margin: 'auto', position: 'relative' }}>
+                <img src="/images/pe.jpeg" alt="Mission Arogya" style={{ width: '100%', height: '480px', objectFit: 'cover', borderRadius: '40px', transition: '0.6s ease', transform: 'perspective(1000px) rotateY(-10deg)', boxShadow: '0 30px 60px rgba(0,0,0,0.18)', animation: 'mwFloatImage 4s ease-in-out infinite' }} />
               </div>
             </div>
           </div>
         </section>
-
-        <div id="donate" style={{ width: '100%', background: '#f4f7fb', padding: '0', overflow: 'hidden', marginBottom: '0', position: 'relative', zIndex: 10, isolation: 'isolate' }}>
-          <iframe
-            ref={iframeRef}
-            src="/donations/donation-inline-arogya.html"
-            style={{ width: '100%', height: '650px', border: 'none', display: 'block' }}
-            title="Donate to Mission Aarogya"
-          />
-        </div>
 
         <section className="about-section" id="about">
           <div className="about-image">
@@ -399,38 +371,6 @@ export default function MissionWellness() {
           </div>
         </section>
 
-        <section className="about-section">
-          <div className="about-content">
-            <span className="mini-title">Baby Care Center</span>
-            <h2>Safe Feeding Spaces For Mothers & Babies</h2>
-            <p>
-              Our Baby Care Center initiative creates safe and comfortable feeding
-              spaces where mothers can feed and care for their babies peacefully in
-              public places with privacy, hygiene and proper support.
-            </p>
-            <div className="about-grid">
-              <div className="about-box">
-                <h3>Baby Feeding Rooms</h3>
-                <p>Providing clean and safe feeding areas for mothers and babies.</p>
-              </div>
-              <div className="about-box">
-                <h3>Mother Support</h3>
-                <p>Helping mothers with comfortable care facilities in public places.</p>
-              </div>
-              <div className="about-box">
-                <h3>Hygienic Environment</h3>
-                <p>Maintaining cleanliness and safety for newborn baby care.</p>
-              </div>
-              <div className="about-box">
-                <h3>Public Care Centers</h3>
-                <p>Setting up baby care centers at different public locations.</p>
-              </div>
-            </div>
-          </div>
-          <div className="about-image">
-            <img src="/images/g1.jpeg" alt="Baby Care Center" />
-          </div>
-        </section>
 
         <section className="gallery-section" id="gallery">
           <div className="gallery-title">

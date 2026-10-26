@@ -1939,8 +1939,10 @@ body{
 
 .donation-images{
   position:relative;
-  width:500px;
-  height:500px;
+  width:100%;
+  max-width:500px;
+  aspect-ratio:1/1;
+  height:auto;
   overflow:hidden;
   border-radius:30px;
 }
@@ -1958,7 +1960,7 @@ body{
 .img-box img{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:contain;
     display:block;
     border-radius:30px;
     transition:0.4s ease;
@@ -1994,8 +1996,8 @@ body{
 
 .small-title{
     color:#00a3da;
-    font-size:18px;
-    font-weight:600;
+    font-size:28px;
+    font-weight:700;
     letter-spacing:1px;
 }
 
@@ -4946,6 +4948,9 @@ body{
 /* ============================================
    RESPONSIVE
    ============================================ */
+   .donation-section { 
+   flex-wrap: nowrap !important;
+   }
 @media (max-width: 768px) {
   .about-section { min-height: auto; padding: 30px 5%; }
   .donation-section { min-height: auto; padding: 40px 5%; }
@@ -5295,6 +5300,38 @@ body{
   .hamburger { width: 34px; height: 34px; font-size: 17px; margin-left: 0; }
 }
 
-/* Global mobile safety */
-html, body { overflow-x: hidden; max-width: 100%; }
+/* Global mobile safety
+   NOTE: overflow-x: clip (not hidden) - `hidden` on html/body creates a scroll
+   container, which breaks position: sticky for every descendant. `clip` prevents
+   horizontal scroll without creating a scroll container. */
+html, body { overflow-x: clip; max-width: 100%; background: #f4f6f8; }
 img { max-width: 100%; }
+
+/* Hide the "Learn more" link inside mission / service card grids.
+   These cards are informational only - the link had no real destination. */
+.mission-card a.learn-more,
+.mission-card a.learn-more-link,
+.mission-card a.read-more,
+.mission-card a.card-link,
+.mission-cards a.learn-more,
+.mission-cards a.learn-more-link,
+.mission-cards a.read-more,
+.mission-cards a.card-link,
+.mission-section a.learn-more,
+.mission-section a.learn-more-link,
+.mission-section a.read-more,
+.highlight-card a.learn-more,
+.highlight-card a.learn-more-link,
+.highlight-card a.read-more,
+.highlight-cards a.learn-more,
+.highlight-cards a.learn-more-link,
+.service-card a.learn-more,
+.service-card a.learn-more-link,
+.services-section a.learn-more,
+.services-section a.learn-more-link,
+.mission-card a[href="#"],
+.mission-cards a[href="#"],
+.highlight-card a[href="#"],
+.service-card a[href="#"] {
+  display: none !important;
+}

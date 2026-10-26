@@ -1,24 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import MissionDonate from '../components/MissionDonate';
+import MissionHero from '../components/MissionHero';
+import BankDetails from '../components/BankDetails';
 
 const MissionVidhya = () => {
-  const iframeRef = useRef(null);
-
-  useEffect(() => {
-    function handleMessage(e) {
-      if (iframeRef.current && typeof e.data === 'number') {
-        iframeRef.current.style.height = e.data + 'px';
-      }
-    }
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
-
   return (
     <>
       <style>{`
         .mission-vidhya * { margin: 0; padding: 0; box-sizing: border-box; }
-        .mission-vidhya { font-family: 'Montserrat', sans-serif; background: #f4f6f8; color: #1d2b36; overflow-x: hidden; }
+        .mission-vidhya { font-family: 'Montserrat', sans-serif; background: #f4f6f8; color: #1d2b36; overflow-x: hidden; overflow-x: clip; }
+        .mission-vidhya h1, .mission-vidhya h2, .mission-vidhya h3, .mission-vidhya h4, .mission-vidhya p { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
         .mission-vidhya img { width: 100%; display: block; }
 
         .mission-vidhya .tax-box {
@@ -44,7 +35,7 @@ const MissionVidhya = () => {
           linear-gradient(135deg, #ffffff, #eef8ff);
         }
         .mission-vidhya .hero-left { flex: 1; max-width: 520px; }
-        .mission-vidhya .tag { color: #00a3da; display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 36px; letter-spacing: 1px; background: none; }
+        .mission-vidhya .tag { color: #00a3da; display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 36px; letter-spacing: 0; background: none; }
         .mission-vidhya .hero-left h1 { font-size: 46px; line-height: 1.15; font-weight: 800; margin-bottom: 14px; color: #1c2b36; }
         .mission-vidhya .hero-left h1 span { color: #00a3da; }
         .mission-vidhya .hero-left p { font-size: 18px; line-height: 1.9; color: #51606d; margin-bottom: 30px; }
@@ -114,23 +105,24 @@ const MissionVidhya = () => {
         }
         .mission-vidhya .section-heading { text-align: center; margin-bottom: 45px; }
         .mission-vidhya .section-heading span { color: #00a3da; font-weight: 700; font-size: x-large; }
-        .mission-vidhya .section-heading h2 { font-size: 40px; margin-top: 10px; }
-        .mission-vidhya .impact-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; padding: 0 5% 30px; justify-items: center; }
+        .mission-vidhya .section-heading h2 { font-size: 40px; margin-top: 10px; text-align: center; }
+        .mission-vidhya .impact-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; padding: 0 5% 30px; justify-items: center; align-items: stretch; }
         .mission-vidhya .impact-card {
           background: #fff; padding: 22px 16px; text-align: center; border-radius: 20px;
           box-shadow: 0 10px 30px rgba(0,0,0,0.06); transition: 0.3s ease;
-          position: relative; overflow: hidden; cursor: pointer; height: 150px; width: 250px;
+          position: relative; overflow: hidden; cursor: pointer; min-height: 150px;
           display: flex; flex-direction: column; align-items: center; justify-content: center;
+          width: 100%;
         }
         .mission-vidhya .impact-card::before {
           content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 0%;
           background: #00a3da; transition: 0.4s ease; z-index: 1;
         }
         .mission-vidhya .impact-card:hover::before { height: 100%; }
-        .mission-vidhya .impact-card h3, .mission-vidhya .impact-card p { position: relative; z-index: 2; transition: 0.3s ease; }
+        .mission-vidhya .impact-card p { text-align: center; }
         .mission-vidhya .impact-card:hover h3, .mission-vidhya .impact-card:hover p { color: #fff; }
 
-        .mission-vidhya .gallery-section { width: 100%; padding: 0 5%; background: #fff; }
+        .mission-vidhya .section-heading, .mission-vidhya .section-heading h2, .mission-vidhya .section-heading span, .mission-vidhya .section-heading p { text-align: center; }
         .mission-vidhya .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .mission-vidhya .gallery-item { overflow: hidden; border-radius: 24px; height: 240px; }
         .mission-vidhya .gallery-item.big { grid-row: span 2; height: 500px; }
@@ -143,7 +135,7 @@ const MissionVidhya = () => {
         }
         .mission-vidhya .sevak-donation-content { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 30px; }
         .mission-vidhya .sevak-left { display: flex; flex-direction: column; gap: 6px; }
-        .mission-vidhya .sevak-tag { font-size: 14px; font-weight: 700; color: #cfe9ff; letter-spacing: 1px; text-transform: uppercase; }
+        .mission-vidhya .sevak-tag { font-size: 14px; font-weight: 700; color: #cfe9ff; letter-spacing: 0; text-transform: uppercase; }
         .mission-vidhya .sevak-title { font-size: 32px; margin: 0; line-height: 1.2; color: #fff; }
         .mission-vidhya .sevak-desc { font-size: 14px; margin: 0; color: #e3f2fc; line-height: 1.5; max-width: 560px; }
         .mission-vidhya .sevak-btn {
@@ -186,7 +178,6 @@ const MissionVidhya = () => {
           .mission-vidhya .hero-buttons { justify-content: center; }
           .mission-vidhya .hero-left h1 { font-size: 46px; }
           .mission-vidhya .about-content h2, .mission-vidhya .section-heading h2 { font-size: 34px; }
-          .mission-vidhya .impact-grid { grid-template-columns: repeat(2,1fr); }
           .mission-vidhya .gallery-grid { grid-template-columns: 1fr; }
           .mission-vidhya .gallery-item.big { height: 240px; }
           .mission-vidhya .feature-boxes { flex-direction: column; }
@@ -203,8 +194,8 @@ const MissionVidhya = () => {
           .mission-vidhya .tag { font-size: 22px; }
           .mission-vidhya .hero-buttons { flex-direction: column; align-items: center; }
           .mission-vidhya .primary-btn { padding: 12px 22px; font-size: 15px; }
-          .mission-vidhya .impact-grid { display: flex; flex-direction: row; align-items: center; justify-content: center; flex-wrap: wrap; }
-          .mission-vidhya .impact-card { height: 120px; padding: 16px 12px; border-radius: 16px; }
+          .mission-vidhya .impact-grid { grid-template-columns: repeat(2,1fr); }
+          .mission-vidhya .impact-card { min-height: 130px; padding: 16px 12px; border-radius: 16px; }
           .mission-vidhya .hero-right { min-height: auto; padding: 0; width: 100%; max-width: 360px; margin: 0 auto; }
           .mission-vidhya .main-image-card { max-width: 100%; transform: none; animation: none; border-radius: 20px; }
           .mission-vidhya .main-image-card img { border-radius: 20px; }
@@ -233,10 +224,15 @@ const MissionVidhya = () => {
           <h1>Mission Vidhya</h1>
         </section>
 
+        <MissionHero mission="vidhya" />
+
+        <MissionDonate mission="vidhya" />
+        <BankDetails />
+
         <section className="hero-section">
           <div className="hero-left">
             <span className="tag">Education For Every Child</span>
-            <h1><span>Vidhya</span><br />Programme</h1>
+            <h1><span>Vidhya</span> Project</h1>
             <p>Being Sevak Charitable Trust presents Project Vidhya – Fight Against Illiteracy, an initiative dedicated to empowering disabled and underprivileged children through education and personal development.</p>
             <div className="hero-buttons">
               <a href="#donate" className="primary-btn">Support Education</a>
@@ -256,15 +252,6 @@ const MissionVidhya = () => {
             </div>
           </div>
         </section>
-
-        <div id="donate" style={{ width: '100%', background: '#fff', padding: '0', overflow: 'hidden', position: 'relative', zIndex: 10, isolation: 'isolate' }}>
-          <iframe
-            ref={iframeRef}
-            src="/donations/donation-inline-vidhya.html"
-            style={{ width: '100%', height: '650px', border: 'none', display: 'block' }}
-            title="Donate to Mission Vidhya"
-          />
-        </div>
 
         <section className="about-section" id="about" style={{ marginTop: '1px' }}>
           <div className="about-image">
@@ -302,14 +289,6 @@ const MissionVidhya = () => {
             <div className="impact-card">
               <h3>50+</h3>
               <p>Communities Reached</p>
-            </div>
-            <div className="impact-card">
-              <h3>500+</h3>
-              <p>Volunteers Connected</p>
-            </div>
-            <div className="impact-card">
-              <h3>100%</h3>
-              <p>Transparent Support</p>
             </div>
           </div>
         </section>

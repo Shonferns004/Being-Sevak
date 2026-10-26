@@ -1,6 +1,6 @@
 const RAZORPAY_KEY_ID = 'rzp_live_StUN8QoR2STezo';
 
-function donateWithRazorpay({ amount, name, email, phone, description, mission }) {
+function donateWithRazorpay({ amount, name, email, phone, description, mission, tab, frequency }) {
   if (!amount || parseFloat(amount) <= 0) { alert('Please enter a valid amount.'); return; }
   if (!name || !name.trim()) { alert('Please enter your name.'); return; }
   if (!email || !email.trim()) { alert('Please enter your email.'); return; }
@@ -25,7 +25,9 @@ function donateWithRazorpay({ amount, name, email, phone, description, mission }
       contact: phone
     },
     notes: {
-      mission: mission || 'General'
+      mission: mission || 'General',
+      tab: tab || '',
+      frequency: frequency || ''
     },
     theme: {
       color: '#315371'

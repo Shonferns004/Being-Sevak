@@ -1,23 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import MissionDonate from '../components/MissionDonate';
+import MissionHero from '../components/MissionHero';
+import BankDetails from '../components/BankDetails';
 
 export default function MissionEco() {
-  const iframeRef = useRef(null);
-
-  useEffect(() => {
-    function handleMessage(e) {
-      if (iframeRef.current && typeof e.data === 'number') {
-        iframeRef.current.style.height = e.data + 'px';
-      }
-    }
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
   return (
     <>
       <style>{`
         .mission-eco * { margin: 0; padding: 0; box-sizing: border-box; }
-        .mission-eco { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background: #fff; }
+        .mission-eco { font-family: 'Montserrat', sans-serif; overflow-x: hidden; overflow-x: clip; background: #fff; }
+        .mission-eco h1, .mission-eco h2, .mission-eco h3, .mission-eco h4, .mission-eco p { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
         .mission-eco img { width: 100%; display: block; }
 
         .mission-eco .tax-box {
@@ -53,7 +45,7 @@ export default function MissionEco() {
           50% { transform: perspective(1000px) rotateY(-10deg) translateY(-12px); }
           100% { transform: perspective(1000px) rotateY(-10deg) translateY(0); }
         }
-        .mission-eco .tag { color: #00a3da; display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 24px; letter-spacing: 1px; background: none; }
+        .mission-eco .tag { color: #00a3da; display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 24px; letter-spacing: 0; background: none; }
         .mission-eco .hero-left h1 { font-size: 46px; line-height: 1.15; margin-bottom: 14px; }
         .mission-eco .hero-left p { font-size: 18px; color: #6b7280; line-height: 1.9; margin-bottom: 35px; }
         .mission-eco .btns { display: flex; gap: 15px; flex-wrap: wrap; }
@@ -184,34 +176,26 @@ export default function MissionEco() {
           <h1>Mission Eco-Warriors</h1>
         </section>
 
-        <section className="hero">
-          <div className="hero-content">
-            <div className="hero-left">
-              <span className="tag">Mission Eco Warriors</span>
-              <h1><b>Turning Plastic Bottles Into A Cleaner Future</b></h1>
-              <p>
-                Mission Eco Warriors by Being Sevak promotes cleanliness and recycling
-                by installing Bottle Crusher Machines at metro stations and public places
-                to reduce plastic waste and protect the environment.
-              </p>
-              <div className="btns">
-                <a href="#donate" className="btn primary">Support Mission</a>
+        <MissionHero mission="ecoWarriors" />
+
+        <MissionDonate mission="ecoWarriors" />
+        <BankDetails />
+
+        <section className="hero" style={{ width: '100%', padding: '48px 7% 32px', background: '#f4fcff', marginBottom: 0 }}>
+          <div className="hero-content" style={{ width: '100%', maxWidth: '800px', margin: 'auto' }}>
+            <div className="hero-left" style={{ flex: 1 }}>
+              <span className="tag" style={{ color: '#00a3da', display: 'inline-block', marginBottom: '12px', fontWeight: 800, fontSize: '24px', letterSpacing: '0', background: 'none' }}>Eco Warriors Initiative</span>
+              <h1 style={{ fontSize: '46px', lineHeight: '1.15', marginBottom: '14px' }}>Protect Our <span style={{ color: '#00a3da' }}>Planet</span></h1>
+              <p style={{ fontSize: '18px', color: '#6b7280', lineHeight: '1.9', marginBottom: '35px' }}>Mission Eco-Warriors drives tree plantation, cleanliness drives, water conservation and plastic-free initiatives to create a greener, more sustainable future.</p>
+              <div className="btns" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+                <a href="#donate" className="btn primary" style={{ padding: '16px 34px', borderRadius: '50px', textDecoration: 'none', fontWeight: '600', fontSize: '18px', transition: '0.3s', background: '#00a3da', color: '#fff', boxShadow: '0 15px 35px rgba(0,163,218,0.35)' }}>Support Eco Mission</a>
               </div>
             </div>
-            <div className="hero-right">
-              <img src="/images/eco main..jpg" alt="Eco Warriors" />
+            <div className="hero-right" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+              <img src="/images/eco main..jpg" alt="Tree Plantation" style={{ width: '100%', maxWidth: '520px', height: '550px', objectFit: 'cover', borderRadius: '40px', transition: '0.6s ease', transform: 'perspective(1000px) rotateY(-10deg)', boxShadow: '0 30px 60px rgba(0,0,0,0.18)', animation: 'meFloatImage 4s ease-in-out infinite' }} />
             </div>
           </div>
         </section>
-
-        <div id="donate" style={{ width: '100%', background: '#f4f7fb', padding: '0', overflow: 'hidden', marginBottom: '0', position: 'relative', zIndex: 10, isolation: 'isolate' }}>
-          <iframe
-            ref={iframeRef}
-            src="/donations/donation-ecowarriors.html"
-            style={{ width: '100%', height: '650px', border: 'none', display: 'block', marginBottom: '-1px' }}
-            title="Donate to Mission Eco Warriors"
-          />
-        </div>
 
         <section className="impact">
           <div className="box">

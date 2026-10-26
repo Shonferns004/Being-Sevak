@@ -6,6 +6,7 @@ export default function MissionBeach() {
       <style>{`
         .mission-beach * { margin: 0; padding: 0; box-sizing: border-box; }
         .mission-beach { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background: #fff; }
+        .mission-beach h1, .mission-beach h2, .mission-beach h3, .mission-beach h4, .mission-beach p { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
         .mission-beach img { width: 100%; display: block; }
 
         .mission-beach .tax-box {
@@ -41,7 +42,7 @@ export default function MissionBeach() {
           50% { transform: perspective(1000px) rotateY(-10deg) translateY(-12px); }
           100% { transform: perspective(1000px) rotateY(-10deg) translateY(0); }
         }
-        .mission-beach .tag { color: #00a3da; display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 24px; letter-spacing: 1px; }
+        .mission-beach .tag { color: #00a3da; display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 24px; letter-spacing: 0; }
         .mission-beach .hero-left h1 { font-size: 46px; line-height: 1.15; margin-bottom: 14px; }
         .mission-beach .hero-left p { font-size: 18px; color: #6b7280; line-height: 1.9; margin-bottom: 35px; }
         .mission-beach .btns { display: flex; gap: 15px; flex-wrap: wrap; }

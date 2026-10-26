@@ -22,6 +22,7 @@ const Awards = () => {
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         :root{--navy:#03163E;--mid:#315371;--cyan:#00A2D9;--cyan-light:#33bce8;--green:#2eb85c;--white:#ffffff;--light-bg:#f4f7fb;--text-dark:#1a1a2e;--text-mid:#4a5568;--gold:#D4AF37}
         body{font-family:'Open Sans',sans-serif;color:var(--text-dark);background:#fff;scroll-behavior:smooth}
+        h1,h2,h3,h4 { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
         .section-title{text-align:center;font-size:34px;font-weight:800;margin:55px auto 25px;color:var(--cyan);font-family:'Montserrat',sans-serif;display:block;width:100%;max-width:1400px;padding:0 60px}
         .awards-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;padding:20px 60px 70px;max-width:1400px;margin:auto}
         .award-card{background:#fff;border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,0.08);overflow:hidden;text-align:center;transition:0.3s;display:flex;flex-direction:column;border:1px solid #f0f0f0}
@@ -35,8 +36,8 @@ const Awards = () => {
         .tax-box h1{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;letter-spacing:2px;color:#fff;margin:0;padding:10px}
         .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;position:relative;overflow:hidden;padding:10px 8%}
         .hero-content{position:relative;z-index:2}
-        .hero-content .tag{background:transparent;color:#00a3da;padding:0;border-radius:0;display:inline-block;margin-bottom:25px;font-weight:800;font-size:35px;letter-spacing:1px}
-        .hero h1{font-size:20px;line-height:1.1;font-weight:800;margin-bottom:25px;padding:10px;color:var(--navy)}
+        .hero-content .tag{background:transparent;color:#00a3da;padding:0;border-radius:0;display:inline-block;margin-bottom:25px;font-weight:800;font-size:35px;letter-spacing:1px;text-align:left;text-justify:auto;hyphens:manual;word-spacing:normal}
+        .hero h1{font-size:20px;line-height:1.1;font-weight:800;margin-bottom:25px;padding:10px;color:var(--navy);text-align:left;text-justify:auto;hyphens:manual;word-spacing:normal}
         .hero h1 span{color:#00a3da}
         .hero p{font-size:18px;line-height:1.9;color:#66788a;margin-bottom:35px}
         .hero-buttons{display:flex;gap:18px;flex-wrap:wrap}

@@ -21,6 +21,7 @@ import Photos from './pages/Photos';
 import Donation2 from './pages/Donation2';
 import IndividualDonation from './pages/IndividualDonation';
 import QuickDonate from './pages/QuickDonate';
+import QuickDonateForm from './pages/QuickDonateForm';
 import MissionAnnapurna from './pages/MissionAnnapurna';
 import MissionVidhya from './pages/MissionVidhya';
 import MissionAurat from './pages/MissionAurat';
@@ -75,6 +76,7 @@ function App() {
         <Route path="/donate" element={<Donation2 />} />
         <Route path="/individual-donation" element={<IndividualDonation />} />
         <Route path="/quick-donate" element={<QuickDonate />} />
+        <Route path="/quick-donate-form" element={<QuickDonateForm />} />
         <Route path="/mission-annapurna" element={<MissionAnnapurna />} />
         <Route path="/mission-vidhya" element={<MissionVidhya />} />
         <Route path="/mission-aurat" element={<MissionAurat />} />

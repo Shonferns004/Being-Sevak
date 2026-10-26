@@ -7,6 +7,7 @@ export default function SevakSevaKendra() {
         .sevak-seva-kendra * { margin: 0; padding: 0; box-sizing: border-box; }
         .sevak-seva-kendra { font-family: 'Montserrat', sans-serif; background: #f4f6f8; color: #1d2b36; overflow-x: hidden; }
         .sevak-seva-kendra img { width: 100%; display: block; }
+        .sevak-seva-kendra h1, .sevak-seva-kendra h2, .sevak-seva-kendra h3, .sevak-seva-kendra h4, .sevak-seva-kendra .tag, .sevak-seva-kendra .mini-title, .sevak-seva-kendra .section-heading span, .sevak-seva-kendra p { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
 
         .sevak-seva-kendra .tax-box {
           width: 100%; height: 70px; display: flex; justify-content: center; align-items: center;

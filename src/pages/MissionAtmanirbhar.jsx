@@ -1,31 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import MissionDonate from '../components/MissionDonate';
+import MissionHero from '../components/MissionHero';
+import BankDetails from '../components/BankDetails';
 
 const MissionAtmanirbhar = () => {
-  const iframeRef = useRef(null);
-
-  useEffect(() => {
-    function handleMessage(e) {
-      if (iframeRef.current && typeof e.data === 'number') {
-        iframeRef.current.style.height = e.data + 'px';
-      }
-    }
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
-
   return (
     <>
       <style>{`
         .mission-atmanirbhar * { margin: 0; padding: 0; box-sizing: border-box; }
-        .mission-atmanirbhar { font-family: 'Montserrat', sans-serif; background: #fff; color: #111827; overflow-x: hidden; }
+        .mission-atmanirbhar { font-family: 'Montserrat', sans-serif; background: #fff; color: #111827; overflow-x: hidden; overflow-x: clip; }
+        .mission-atmanirbhar h1, .mission-atmanirbhar h2, .mission-atmanirbhar h3, .mission-atmanirbhar h4, .mission-atmanirbhar p { text-align: left; text-justify: auto; hyphens: manual; -webkit-hyphens: manual; word-spacing: normal; }
         .mission-atmanirbhar img { width: 100%; display: block; }
         .mission-atmanirbhar section { overflow: hidden; }
 
         .mission-atmanirbhar .tax-box {
-          width: 100%; height: 80px; display: flex; justify-content: center; align-items: center;
+          width: 100%; height: 70px; display: flex; justify-content: center; align-items: center;
           text-align: center; background: linear-gradient(to right, #009BD4 0%, #0285C3 25%, #046FB1 50%, #074D97 75%, #083D8B 100%);
-          color: #fff; margin: 20px 0; padding: 10px; border-radius: 0;
+          color: #fff; margin: 10px 0; padding: 10px; border-radius: 0;
           box-shadow: 0 15px 40px rgba(0,0,0,0.15); position: relative; overflow: hidden; transition: 0.4s ease;
         }
         .mission-atmanirbhar .tax-box h1 { font-size: 28px; font-weight: 700; position: relative; z-index: 2; }
@@ -47,7 +38,7 @@ const MissionAtmanirbhar = () => {
         .mission-atmanirbhar .hero-right { flex: 1; display: flex; justify-content: center; }
         .mission-atmanirbhar .tag {
           background: transparent; color: #00a3da; padding: 0; border-radius: 0;
-          display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 24px; letter-spacing: 1px;
+          display: inline-block; margin-bottom: 12px; font-weight: 800; font-size: 24px; letter-spacing: 0;
         }
         .mission-atmanirbhar .hero-left h1 { font-size: 46px; line-height: 1.15; font-weight: 800; margin-bottom: 14px; }
         .mission-atmanirbhar .hero-left p { font-size: 18px; color: #6b7280; line-height: 1.9; margin-bottom: 35px; }
@@ -103,7 +94,7 @@ const MissionAtmanirbhar = () => {
 
         .mission-atmanirbhar .gallery-section { width: 100%; padding: 90px 20px; }
         .mission-atmanirbhar .gallery-title { max-width: 800px; margin: auto; text-align: center; margin-bottom: 60px; }
-        .mission-atmanirbhar .gallery-title span { color: #00a3da; font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .mission-atmanirbhar .gallery-title span { color: #00a3da; font-size: 15px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; }
         .mission-atmanirbhar .gallery-title h2 { font-size: 48px; margin: 15px 0; font-weight: 800; }
         .mission-atmanirbhar .gallery-title p { color: #6b7280; line-height: 1.9; }
         .mission-atmanirbhar .gallery-grid { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 260px; gap: 25px; }
@@ -211,33 +202,29 @@ const MissionAtmanirbhar = () => {
 
       <div className="mission-atmanirbhar">
         <section className="tax-box">
-          <h1>Mission AtmaNirbhar</h1>
+          <h1>Mission Atmanirbhar</h1>
         </section>
 
-        <section className="hero-section">
-          <div className="hero-content">
-            <div className="hero-left">
-              <span className="tag">Mission Atma Nirbhar</span>
-              <h1>Building Self Reliant &amp; Empowered Communities</h1>
-              <p>Atma Nirbhar initiative by Being Sevak focuses on empowering individuals through skills, education, and sustainable livelihood opportunities.</p>
-              <div className="hero-buttons">
-                <a href="#donate" className="primary-btn">Support The Mission</a>
+        <MissionHero mission="atmanirbhar" />
+
+        <MissionDonate mission="atmanirbhar" />
+        <BankDetails />
+
+        <section className="hero-section" style={{ width: '100%', padding: '48px 7% 32px', background: '#f5fbff', marginBottom: 0 }}>
+          <div className="hero-content" style={{ maxWidth: '800px', margin: 'auto' }}>
+            <div className="hero-left" style={{ flex: 1 }}>
+              <span className="tag" style={{ background: 'transparent', color: '#00a3da', padding: 0, borderRadius: 0, display: 'inline-block', marginBottom: '12px', fontWeight: 800, fontSize: '24px', textAlign: 'left' }}>Skill Development Initiative</span>
+              <h1 style={{ fontSize: '46px', lineHeight: '1.15', fontWeight: 800, marginBottom: '14px' }}>Build Skills <span style={{ color: '#00a3da' }}>For Life</span></h1>
+              <p style={{ fontSize: '18px', color: '#6b7280', lineHeight: '1.9', marginBottom: '35px' }}>Mission Atmanirbhar empowers individuals with skill training, self-employment support, and livelihood programs for a self-reliant future.</p>
+              <div className="hero-buttons" style={{ display: 'flex', gap: '15px' }}>
+                <a href="#donate" className="primary-btn" style={{ padding: '16px 34px', borderRadius: '50px', textDecoration: 'none', fontWeight: '600', fontSize: '18px', transition: '0.3s', background: '#00a3da', color: '#fff', boxShadow: '0 15px 35px rgba(0,163,218,0.35)' }}>Support Skill Training</a>
               </div>
             </div>
-            <div className="hero-right">
-              <img src="/images/wqe.jpeg" alt="Atmanirbhar" />
+            <div className="hero-right" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+              <img src="/images/wqe.jpeg" alt="Skill Training" style={{ maxWidth: '520px', height: '560px', objectFit: 'cover', borderRadius: '40px', transition: '0.6s ease', transform: 'perspective(1000px) rotateY(-10deg)', boxShadow: '0 30px 60px rgba(0,0,0,0.18)', animation: 'atFloatImage 4s ease-in-out infinite' }} />
             </div>
           </div>
         </section>
-
-        <div id="donate" style={{ width: '100%', background: '#f4f7fb', padding: '0', overflow: 'hidden', marginBottom: '0', position: 'relative', zIndex: 10, isolation: 'isolate' }}>
-          <iframe
-            ref={iframeRef}
-            src="/donations/donation-inline-atmanirbhar.html"
-            style={{ width: '100%', height: '650px', border: 'none', display: 'block' }}
-            title="Donate to Mission Atmanirbhar"
-          />
-        </div>
 
         <section className="about-section" id="about">
           <div className="about-image">
@@ -342,3 +329,4 @@ const MissionAtmanirbhar = () => {
 };
 
 export default MissionAtmanirbhar;
+

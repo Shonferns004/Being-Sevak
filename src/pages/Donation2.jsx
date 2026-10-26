@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import BankDetails from '../components/BankDetails';
 
 export default function Donation2() {
   const [activeTab, setActiveTab] = useState('tab-annapurna');
@@ -18,20 +19,20 @@ export default function Donation2() {
   }, []);
 
   const tabs = [
-    { id: 'tab-annapurna', label: 'Mission Annapurna', icon: 'fa-utensils', title: 'Mission Annapurna', desc: 'Providing nutritious meals and dry ration kits to underprivileged children and visually impaired individuals across Mumbai.', src: '../donations/donation-inline.html' },
-    { id: 'tab-vidya', label: 'Mission Vidya', icon: 'fa-graduation-cap', title: 'Mission Vidya', desc: 'Quality education support for underprivileged children, school dropouts, and visually impaired students through scholarships and supplies.', src: '../donations/donation-vidhya.html' },
-    { id: 'tab-aurat', label: 'Mission Aurat', icon: 'fa-fist-raised', title: 'Mission Aurat', desc: 'Empowering women through education, skill development, legal awareness, health support, and self-help groups.', src: '../donations/donation-aurat.html' },
-    { id: 'tab-bezubaan', label: 'Mission Bezubaan', icon: 'fa-paw', title: 'Mission Bezubaan', desc: 'Animal welfare initiatives including rescue, medical care, feeding programs, and shelter for stray and abandoned animals.', src: '../donations/donation-bezubaan.html' },
-    { id: 'tab-atmanirbhar', label: 'Mission Atmanirbhar', icon: 'fa-hand-holding-heart', title: 'Mission Atmanirbhar', desc: 'Skill development and vocational training for visually impaired individuals, widows, and underprivileged youth to achieve self-reliance.', src: '../donations/donation-atmanirbhar.html' },
-    { id: 'tab-arogya', label: 'Mission Arogya', icon: 'fa-heartbeat', title: 'Mission Arogya', desc: 'Healthcare initiatives including medical camps, eye check-ups, health awareness drives, and medicine distribution for the needy.', src: '../donations/donation-arogya.html' },
-    { id: 'tab-eco', label: 'Mission Eco Warriors', icon: 'fa-leaf', title: 'Mission Eco Warriors', desc: 'Environmental conservation projects including tree plantation drives, beach clean-ups, recycling awareness, and sustainability education.', src: '../donations/donation-ecowarriors.html' },
-    { id: 'tab-sevaknivas', label: 'Sevak Nivas', icon: 'fa-home', title: 'Sevak Nivas', desc: 'Providing shelter, care, skill development, and independent living opportunities for visually impaired students through 12 dedicated facilities.', src: '../donations/donation-sevaknivas.html' },
+    { id: 'tab-annapurna', label: 'Mission Annapurna', icon: 'fa-utensils', title: 'Mission Annapurna', desc: 'Providing nutritious meals and dry ration kits to underprivileged children and visually impaired individuals across Mumbai.', src: '../donations/donation-mission.html?mission=annapurna' },
+    { id: 'tab-vidya', label: 'Mission Vidya', icon: 'fa-graduation-cap', title: 'Mission Vidya', desc: 'Quality education support for underprivileged children, school dropouts, and visually impaired students through scholarships and supplies.', src: '../donations/donation-mission.html?mission=vidhya' },
+    { id: 'tab-aurat', label: 'Mission Aurat', icon: 'fa-fist-raised', title: 'Mission Aurat', desc: 'Empowering women through education, skill development, legal awareness, health support, and self-help groups.', src: '../donations/donation-mission.html?mission=aurat' },
+    { id: 'tab-bezubaan', label: 'Mission Bezubaan', icon: 'fa-paw', title: 'Mission Bezubaan', desc: 'Animal welfare initiatives including rescue, medical care, feeding programs, and shelter for stray and abandoned animals.', src: '../donations/donation-mission.html?mission=bezubaan' },
+    { id: 'tab-atmanirbhar', label: 'Mission Atmanirbhar', icon: 'fa-hand-holding-heart', title: 'Mission Atmanirbhar', desc: 'Skill development and vocational training for visually impaired individuals, widows, and underprivileged youth to achieve self-reliance.', src: '../donations/donation-mission.html?mission=atmanirbhar' },
+    { id: 'tab-arogya', label: 'Mission Arogya', icon: 'fa-heartbeat', title: 'Mission Arogya', desc: 'Healthcare initiatives including medical camps, eye check-ups, health awareness drives, and medicine distribution for the needy.', src: '../donations/donation-mission.html?mission=arogya' },
+    { id: 'tab-eco', label: 'Mission Eco Warriors', icon: 'fa-leaf', title: 'Mission Eco Warriors', desc: 'Environmental conservation projects including tree plantation drives, beach clean-ups, recycling awareness, and sustainability education.', src: '../donations/donation-mission.html?mission=ecoWarriors' },
+    { id: 'tab-sevaknivas', label: 'Sevak Nivas', icon: 'fa-home', title: 'Sevak Nivas', desc: 'Providing shelter, care, skill development, and independent living opportunities for visually impaired students through 12 dedicated facilities.', src: '../donations/donation-mission.html?mission=sevakSevaKendra' },
   ];
 
   useEffect(() => {
     // Meta Pixel
     if (!window.fbq) {
-      const f = window.fbq = function() {
+      const f = window.fbq = function () {
         f.callMethod ? f.callMethod.apply(f, arguments) : f.queue.push(arguments);
       };
       if (!window._fbq) window._fbq = f;
@@ -260,17 +261,20 @@ export default function Donation2() {
           box-shadow: 0 25px 60px rgba(0, 163, 218, 0.35);
         }
         @media (max-width: 900px) {
-          .hero { grid-template-columns: 1fr; min-height: auto; padding: 140px 8% 40px; text-align: center; }
-          .hero h1 { font-size: 36px; }
+          .hero { grid-template-columns: 1fr; min-height: auto; padding: 80px 6% 30px; text-align: center; gap: 20px; }
+          .hero h1 { font-size: 34px; margin-bottom: 18px; }
+          .hero p { font-size: 16px; line-height: 1.7; margin-bottom: 24px; }
           .hero-buttons { justify-content: center; }
-          .hero-image { margin-top: 30px; }
-          .hero-image img { height: 260px; }
-          .card1 { top: 10px; left: 10px; }
-          .card2 { bottom: 30px; right: 10px; }
-          .floating-card h3 { font-size: 24px; }
-          .floating-card p { font-size: 12px; }
-          .section-header span { font-size: 22px; }
-          .section-header h2 { font-size: 30px; }
+          .hero-image { margin-top: 20px; width: 100%; }
+          .hero-image img { height: 240px; transform: perspective(1000px) rotateY(-5deg); padding: 12px; }
+          .card1 { top: 8px; left: 8px; }
+          .card2 { bottom: 24px; right: 8px; }
+          .floating-card { padding: 10px 14px; width: 150px; height: 78px; }
+          .floating-card h3 { font-size: 22px; margin-bottom: 2px; }
+          .floating-card p { font-size: 11px; }
+          .section-header span { font-size: 20px; }
+          .section-header h2 { font-size: 28px; }
+          .section-header p { font-size: 14px; }
           .tabs-wrapper { gap: 6px; }
           .tab-link { font-size: 12px; padding: 10px 16px; }
           .project-card { padding: 25px 20px; }
@@ -287,14 +291,15 @@ export default function Donation2() {
           .tab-link { font-size: 11px; padding: 8px 14px; }
         }
         @media (max-width: 600px) {
-          .tag { font-size: 22px; }
-          .hero { padding: 120px 5% 30px; }
-          .hero h1 { font-size: 30px; }
-          .hero p { font-size: 15px; }
-          .hero-image img { height: 200px; transform: perspective(1000px) rotateY(-5deg); padding: 12px; }
-          .floating-card { padding: 10px 14px; }
-          .floating-card h3 { font-size: 20px; }
-          .floating-card p { font-size: 11px; }
+          .tag { font-size: 20px; letter-spacing: 0.5px; }
+          .hero { padding: 70px 5% 24px; min-height: auto; }
+          .hero h1 { font-size: 28px; margin-bottom: 14px; }
+          .hero p { font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+          .hero-image { margin-top: 18px; }
+          .hero-image img { height: 180px; transform: perspective(1000px) rotateY(-5deg); padding: 10px; border-radius: 24px; }
+          .floating-card { padding: 8px 12px; width: 130px; height: 64px; }
+          .floating-card h3 { font-size: 18px; margin-bottom: 2px; }
+          .floating-card p { font-size: 10px; }
           .section-header { margin-bottom: 24px; }
           .section-header span { font-size: 18px; }
           .section-header h2 { font-size: 24px; }
@@ -309,15 +314,15 @@ export default function Donation2() {
           .tax-box p { font-size: 12px; }
         }
         @media (max-width: 480px) {
-          .hero { padding: 100px 4% 24px; }
-          .hero h1 { font-size: 24px; }
-          .hero p { font-size: 14px; }
-          .hero-image img { height: 160px; border-radius: 24px; padding: 10px; }
+          .hero { padding: 60px 4% 20px; }
+          .hero h1 { font-size: 22px; }
+          .hero p { font-size: 13px; }
+          .hero-image img { height: 150px; border-radius: 20px; padding: 8px; }
           .hero-image::before { display: none; }
-          .card1 { top: 0; left: 0; padding: 8px 12px; }
-          .card2 { bottom: 10px; right: 0; padding: 8px 12px; }
-          .floating-card h3 { font-size: 16px; }
-          .floating-card p { font-size: 10px; }
+          .card1 { top: 0; left: 0; padding: 6px 10px; width: 120px; height: 56px; }
+          .card2 { bottom: 8px; right: 0; padding: 6px 10px; width: 120px; height: 56px; }
+          .floating-card h3 { font-size: 14px; margin-bottom: 0; }
+          .floating-card p { font-size: 9px; }
           .project-card { padding: 14px 12px; border-radius: 14px; }
           .project-card h3 { font-size: 15px; }
           .project-card p { font-size: 12px; }
@@ -382,38 +387,7 @@ export default function Donation2() {
         ))}
       </section>
 
-      <section className="bank-details-section" style={{padding: '60px 8%', background: '#f4f7fb'}}>
-        <div style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center', marginBottom: '40px'}}>
-          <h2 style={{fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: '2rem', color: '#03163E', marginBottom: '8px'}}>Bank Details</h2>
-          <p style={{fontSize: '1rem', color: '#4a5568', maxWidth: '600px', margin: '0 auto'}}>You can make your donation directly to our bank accounts below.</p>
-        </div>
-        <div style={{maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px'}}>
-          <div style={{background: '#fff', borderRadius: '20px', padding: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #e2ecf5'}}>
-            <h3 style={{fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: '1.3rem', color: '#03163E', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px'}}><i className="fas fa-university" style={{color: '#00a3da'}}></i>Bank Details 1</h3>
-            <p style={{fontSize: '0.95rem', color: '#4a5568', lineHeight: 1.8, margin: '8px 0 0 0'}}>Bank: Axis Bank, Kandivali (West), Mumbai</p>
-            <p style={{fontSize: '0.95rem', color: '#4a5568', lineHeight: 1.8, margin: '8px 0 0 0'}}>A/C No: 920010066029137</p>
-            <p style={{fontSize: '0.95rem', color: '#4a5568', lineHeight: 1.8, margin: '8px 0 0 0'}}>IFSC: UTIB0000201</p>
-          </div>
-          <div style={{background: '#fff', borderRadius: '20px', padding: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #e2ecf5'}}>
-            <h3 style={{fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: '1.3rem', color: '#03163E', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px'}}><i className="fas fa-university" style={{color: '#00a3da'}}></i>Bank Details 2</h3>
-            <p style={{fontSize: '0.95rem', color: '#4a5568', lineHeight: 1.8, margin: '8px 0 0 0'}}>Bank: Saraswat Bank, Kandivali (West), Mumbai</p>
-            <p style={{fontSize: '0.95rem', color: '#4a5568', lineHeight: 1.8, margin: '8px 0 0 0'}}>A/C No: 130200100119387</p>
-            <p style={{fontSize: '0.95rem', color: '#4a5568', lineHeight: 1.8, margin: '8px 0 0 0'}}>IFSC: SRCB0000130</p>
-          </div>
-          <div style={{background: '#fff', borderRadius: '20px', padding: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #e2ecf5', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>
-            <h3 style={{fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: '1.3rem', color: '#03163E', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px'}}><i className="fas fa-qrcode" style={{color: '#00a3da'}}></i>Donation QR Code</h3>
-            <div style={{width: '200px', height: '200px', border: '2px dashed #cbd5e1', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fafafa', marginBottom: '16px', overflow: 'hidden'}}>
-              <img src="/images/Qrcode.jpeg" alt="UPI QR Code for Donation" style={{width: '100%', height: '100%', objectFit: 'cover'}} onError={(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex'; }} />
-              <div style={{display: 'none', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: '0.9rem', padding: '20px', textAlign: 'center'}}>
-                <i className="fas fa-qrcode" style={{fontSize: '3rem', marginBottom: '8px', color: '#cbd5e1'}}></i>
-                <span>QR Code Image</span>
-                <small style={{marginTop: '8px'}}>Place upi-qr-code.png in public/images/</small>
-              </div>
-            </div>
-            <p style={{fontSize: '0.9rem', color: '#4a5568', margin: 0, fontWeight: 500}}>Scan to Donate via UPI</p>
-          </div>
-        </div>
-      </section>
+      <BankDetails />
 
       <section className="tax-box">
         <p>Get <b>50% Exemption</b> on your donation under <b>Section 80G of Income Tax Act 1961</b></p>
